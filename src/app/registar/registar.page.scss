@@ -1,0 +1,93 @@
+:host, 
+ion-content,
+.registar-content {
+  --ion-background-color: #fff !important;
+  background: #fff !important;
+  color: #222 !important;
+}
+
+/* Layout principal */
+.registar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --padding-top: 40px;
+  background: #fff !important;
+}
+
+/* Avatar circular */
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  margin-top: 24px;
+}
+
+.circle-avatar {
+  width: 56px;
+  height: 56px;
+  background-color: #3e885b;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* Título */
+.registar-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+  margin-top: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Formulário */
+form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Campos do formulário */
+.custom-item {
+  --background: #fff;
+  --border-radius: 12px;
+  --border-color: #dadada;
+  --box-shadow: none;
+  margin-bottom: 0;
+}
+
+.custom-input {
+  font-size: 1.07rem;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  color: #222;
+}
+
+/* Botão principal */
+.btn-registar {
+  --background: #3e885b;
+  --color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  margin-top: 12px;
+}
+
+/* Botão voltar (outline) */
+.btn-voltar {
+  --border-color: #3e885b;
+  --color: #3e885b;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  background: #fff;
+}

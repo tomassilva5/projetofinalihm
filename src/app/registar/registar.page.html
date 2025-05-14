@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input [(ngModel)]="nome" name="nome" placeholder="Nome completo" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="email" name="email" type="email" placeholder="E-mail" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="telefone" name="telefone" type="tel" placeholder="Telefone" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="password" name="password" type="password" placeholder="Palavra-passe" required></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="!nome || !email || !telefone || !password">
+      Registar
+    </ion-button>
+    <ion-button expand="block" fill="outline" (click)="voltar()">
+      Voltar
+    </ion-button>
+  </form>
+</ion-content>
