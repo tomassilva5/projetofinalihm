@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">projetofinalihm</string>
-    <string name="title_activity_main">projetofinalihm</string>
-    <string name="package_name">ionic.projetofinalihm</string>
-    <string name="custom_url_scheme">ionic.projetofinalihm</string>
-</resources>
