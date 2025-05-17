@@ -32,8 +32,49 @@
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/* Definições globais reutilizáveis */
 
+/* Variável para border-radius padrão */
+:root {
+    --border-radius-global: 14px;
+  }
+  
+  /* Aplica o border-radius global a inputs, cards, botões, etc */
+  ion-item,
+  input,
+  textarea,
+  select,
+  ion-card,
+  ion-button,
+  .global-card,
+  .global-input {
+    border-radius: var(--border-radius-global) !important;
+  }
+  
+  /* Estilo global para labels */
+  ion-label,
+  .label-global {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.08rem;
+    color: #222;
+    margin-bottom: 6px;
+  }
+  
+  /* Exemplo de uso para um card custom */
+  .global-card {
+    box-shadow: 0 2px 8px #0001;
+    padding: 16px;
+    background: #fff;
+    border-radius: var(--border-radius-global);
+  }
+  
+  /* Exemplo de uso para um input custom */
+  .global-input {
+    border: 1px solid #bdbdbd;
+    border-radius: var(--border-radius-global);
+    padding: 12px;
+    background: #fff;
+    font-size: 1.08rem;
+    color: #222;
+  }
 

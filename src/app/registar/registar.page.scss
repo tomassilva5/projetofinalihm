@@ -1,93 +1,159 @@
-:host, 
+:host,
 ion-content,
 .registar-content {
   --ion-background-color: #fff !important;
   background: #fff !important;
   color: #222 !important;
-}
-
-/* Layout principal */
-.registar-content {
+  min-height: 100vh;
+  font-family: 'Montserrat', Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  --padding-top: 40px;
-  background: #fff !important;
+  justify-content: flex-start;
 }
 
-/* Avatar circular */
-.avatar-container {
+/* Logo no topo à esquerda */
+.top-bar {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-bottom: 14px;
-  margin-top: 24px;
+  align-items: flex-start;
+  margin-top: 40px;
+  margin-bottom: 0;
+  padding-left: 32px;
 }
 
 .circle-avatar {
-  width: 56px;
-  height: 56px;
-  background-color: #3e885b;
+  width: 60px;
+  height: 60px;
+  background-color: #357a50;
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   letter-spacing: 1px;
 }
 
-/* Título */
+/* Título grande e centrado */
 .registar-title {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 400;
-  margin-bottom: 24px;
-  margin-top: 0;
+  font-size: 3.5rem;
+  font-weight: 415;
+  color: #222;
+  margin-bottom: 38px;
+  margin-top: 18px;
   font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 0.5px;
 }
 
-/* Formulário */
+/* Formulário centrado verticalmente e horizontalmente */
 form {
   width: 100%;
-  max-width: 340px;
+  max-width: 360px; /* Aumentado para maior largura dos botões */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 25px;
+  flex: 1 0 auto;
+  justify-content: center; /* Centra verticalmente */
+  min-height: 60vh;
+  padding-bottom: 120px; /* Espaço para botões em baixo */
 }
 
-/* Campos do formulário */
+/* Campos com cantos arredondados */
 .custom-item {
   --background: #fff;
-  --border-radius: 12px;
-  --border-color: #dadada;
-  --box-shadow: none;
+  --border-radius: 10px;
+  --border-color: #bdbdbd;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 12px;
   margin-bottom: 0;
+  min-height: 52px;
+  margin-left: 0;
+  margin-right: 0;
+  --padding-start: 0;
+  --padding-end: 0;
 }
 
 .custom-input {
-  font-size: 1.07rem;
-  --padding-start: 12px;
-  --padding-end: 12px;
+  font-size: 1.13rem;
+  --padding-start: 0;
+  --padding-end: 0;
   color: #222;
+  --background: #fff;
+  --placeholder-color: #211f1f;
+  font-family: 'Montserrat', Arial, sans-serif;
+  text-align: center;
 }
 
-/* Botão principal */
-.btn-registar {
-  --background: #3e885b;
-  --color: #fff;
-  font-weight: 500;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  margin-top: 12px;
+/* Centraliza texto e placeholder em todos os browsers */
+.custom-input .native-input,
+.custom-input input,
+.custom-input ::placeholder {
+  text-align: center !important;
 }
 
-/* Botão voltar (outline) */
+/* Botões mais largos e fixos quase no fundo */
+.btn-group {
+  width: 100%;
+  max-width: 450px; /* Aumentado para botões mais compridos */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 48px; /* Quase no fundo */
+  padding: 0 24px;
+  background: transparent;
+}
+
+.btn-registar,
 .btn-voltar {
-  --border-color: #3e885b;
-  --color: #3e885b;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: 52px;
+  font-size: 1.15rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   border-radius: 8px;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  background: #fff;
 }
+
+.btn-registar {
+  --background: #357a50;
+  --color: #fff;
+  box-shadow: 0 2px 8px #357a5015;
+}
+
+.btn-voltar {
+  --border-color: #357a50;
+  --color: #357a50;
+  background: #fff;
+  box-shadow: 0 2px 8px #357a5011;
+}
+
+/* Responsividade */
+@media (max-width: 300px) {
+  .registar-title {
+    font-size: 2.2rem;
+  }
+  form {
+    max-width: 95vw;
+    gap: 14px;
+    padding-bottom: 100px;
+  }
+  .top-bar {
+    padding-left: 14px;
+    margin-top: 54px;
+  }
+  .btn-group {
+    max-width: 95vw;
+    padding: 0 8px;
+    bottom: 20px;
+  }
+}
+

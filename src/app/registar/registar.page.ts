@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonItem } from '@ionic/angular/standalone';
+import { IonContent, IonInput, IonButton, IonItem } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-registar',
@@ -9,8 +9,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonIt
   styleUrls: ['./registar.page.scss'],
   standalone: true,
   imports: [
-    IonContent, IonHeader, IonTitle, IonToolbar,
-    IonInput, IonButton, IonItem,
+    IonContent, IonInput, IonButton, IonItem,
     CommonModule, FormsModule
   ]
 })

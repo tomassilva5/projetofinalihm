@@ -1,28 +1,60 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Registar</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true" class="registar-content">
+  <div class="top-bar">
+    <div class="circle-avatar">NT</div>
+  </div>
+  <h1 class="registar-title">Registar</h1>
   <form (ngSubmit)="onSubmit()">
-    <ion-item>
-      <ion-input [(ngModel)]="nome" name="nome" placeholder="Nome completo" required></ion-input>
+    <ion-item class="custom-item" lines="none">
+      <ion-input
+        [(ngModel)]="nome"
+        name="nome"
+        placeholder="Nome completo"
+        required
+        class="custom-input center-input"
+      ></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="email" name="email" type="email" placeholder="E-mail" required></ion-input>
+    <ion-item class="custom-item" lines="none">
+      <ion-input
+        [(ngModel)]="email"
+        name="email"
+        type="email"
+        placeholder="Endereço de e-mail"
+        required
+        class="custom-input center-input"
+      ></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="telefone" name="telefone" type="tel" placeholder="Telefone" required></ion-input>
+    <ion-item class="custom-item" lines="none">
+      <ion-input
+        [(ngModel)]="telefone"
+        name="telefone"
+        type="tel"
+        placeholder="Número de telefone"
+        required
+        class="custom-input center-input"
+      ></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="password" name="password" type="password" placeholder="Palavra-passe" required></ion-input>
+    <ion-item class="custom-item" lines="none">
+      <ion-input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        placeholder="Palavra-passe"
+        required
+        class="custom-input center-input"
+      ></ion-input>
     </ion-item>
-    <ion-button expand="block" type="submit" [disabled]="!nome || !email || !telefone || !password">
-      Registar
-    </ion-button>
-    <ion-button expand="block" fill="outline" (click)="voltar()">
-      Voltar
-    </ion-button>
+    <div class="btn-group">
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="!nome || !email || !telefone || !password"
+        class="btn-registar"
+      >
+        Registar
+      </ion-button>
+      <ion-button expand="block" fill="outline" (click)="voltar()" class="btn-voltar">
+        Voltar
+      </ion-button>
+    </div>
   </form>
 </ion-content>

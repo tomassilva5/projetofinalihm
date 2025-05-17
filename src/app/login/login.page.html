@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="top-bar">
+    <div class="circle-avatar">NT</div>
+  </div>
+
+  <h1 class="login-title">Login</h1>
+
+  <form (ngSubmit)="onSubmit()">
+    <ion-item class="custom-item" lines="none">
+      <ion-input
+        [(ngModel)]="emailOuTelefone"
+        name="emailOuTelefone"
+        placeholder="Endereço de e-mail ou telefone"
+        required
+        class="custom-input center-input"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="custom-item" lines="none">
+      <ion-input
+        [(ngModel)]="password"
+        name="password"
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Palavra-passe"
+        required
+        class="custom-input center-input"
+      ></ion-input>
+      <ion-icon
+        [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+        slot="end"
+        class="password-toggle-icon"
+        (click)="togglePasswordVisibility()"
+      ></ion-icon>
+    </ion-item>
+
+    <ion-text class="forgot-password" (click)="esqueciSenha()">
+      Esqueceu a Palavra-passe?
+    </ion-text>
+
+    <ion-button
+      expand="block"
+      type="submit"
+      [disabled]="!emailOuTelefone || !password"
+      class="btn-login"
+    >
+      ENTRAR
+    </ion-button>
+  </form>
+
+  <div class="btn-register-fixed">
+    <div class="signup-info">
+      <div class="signup-title">Ainda não tens conta?</div>
+      <hr class="signup-divider" />
+      <div class="signup-desc">
+        Se ainda não tens conta regista aqui e tira partido das melhores vantagens.
+      </div>
+    </div>
+    <ion-button expand="block" fill="outline" (click)="irParaRegistar()" class="btn-register">
+      REGISTAR
+    </ion-button>
+  </div>
+</ion-content>

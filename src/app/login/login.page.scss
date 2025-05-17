@@ -1,0 +1,171 @@
+:host,
+ion-content,
+.login-content {
+  --ion-background-color: #fff !important;
+  background: #fff !important;
+  color: #222 !important;
+  min-height: 100vh;
+  font-family: 'Montserrat', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 24px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.circle-avatar {
+  width: 56px;
+  height: 56px;
+  background-color: var(--primary-color, #357a50); 
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 415;
+  color: #222;
+  margin-bottom: 38px;
+  margin-top: 18px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.custom-item {
+  --background: #fff;
+  --border-radius: var(--border-radius-global, 14px); 
+  --border-color: #bdbdbd;
+  border: 1.5px solid #bdbdbd;
+  border-radius: var(--border-radius-global, 14px);
+  min-height: 52px;
+  position: relative; /* Para posicionar o ícone */
+}
+
+.custom-input {
+  font-size: 1.13rem;
+  color: #222;
+  text-align: center;
+  --background: #fff;
+  --placeholder-color: #211f1f;
+  padding-right: 40px !important; /* Espaço para o ícone */
+}
+
+.custom-input .native-input,
+.custom-input input,
+.custom-input ::placeholder {
+  text-align: center !important;
+}
+
+.password-toggle-icon {
+  cursor: pointer;
+  color: #7a7a7a; /* Cor visível */
+  font-size: 1.8rem; /* Tamanho maior para garantir visibilidade */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100; /* Garante que fique acima de outros elementos */
+  background: transparent;
+  padding: 5px; /* Área clicável maior */
+}
+
+.forgot-password {
+  color: var(--primary-color, #357a50); 
+  font-size: 0.9rem;
+  text-align: right;
+  cursor: pointer;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.btn-login {
+  --background: var(--primary-color, #357a50); 
+  --color: #fff;
+  font-weight: 600;
+  border-radius: var(--border-radius-global, 14px); 
+  font-size: 1.15rem;
+  height: 52px;
+}
+
+/* Bloco informativo "Ainda não tens conta?" */
+.signup-info {
+  max-width: 440px;
+  margin: 40px auto 0 auto;
+  padding: 0 8px 24px 8px;
+  text-align: left;
+}
+
+.signup-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #222;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.signup-divider {
+  border: none;
+  border-top: 1px solid #bdbdbd;
+  margin: 0 0 10px 0;
+}
+
+.signup-desc {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.btn-register-fixed {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  padding: 0 24px;
+  background: transparent;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-register {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: 52px;
+  font-size: 1.15rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: var(--border-radius-global, 14px); 
+  --border-color: var(--primary-color, #357a50); 
+  --color: var(--primary-color, #357a50);
+  background: #fff;
+}
+
+ion-icon {
+  font-size: 1.3rem;
+}
