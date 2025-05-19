@@ -65,7 +65,7 @@ form {
   text-align: center;
   --background: #fff;
   --placeholder-color: #211f1f;
-  padding-right: 40px !important; /* Espaço para o ícone */
+  padding-right: 40px; /* Espaço para o ícone */
 }
 
 .custom-input .native-input,
@@ -80,7 +80,7 @@ form {
   font-size: 1.8rem; /* Tamanho maior para garantir visibilidade */
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 27%;
   transform: translateY(-50%);
   z-index: 100; /* Garante que fique acima de outros elementos */
   background: transparent;

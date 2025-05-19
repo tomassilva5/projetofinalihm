@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonInput, IonButton, IonItem, IonText, IonIcon } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +17,16 @@ export class LoginPage implements OnInit {
   password = '';
   showPassword = false; // Variável para controlar a visibilidade da passe
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private navCtrl: NavController) { }
+
+  
 
   ngOnInit() {
   }
 
   onSubmit() {
     if (this.emailOuTelefone && this.password) {
-      alert(`Login com: ${this.emailOuTelefone}`);
-      this.router.navigate(['/home']);
+      this.navCtrl.navigateRoot('/tabs/home');
     }
   }
 

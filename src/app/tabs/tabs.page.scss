@@ -1,0 +1,35 @@
+// Add custom styles here if needed 
+
+.custom-tab-bar {
+  --background: #ffffff;
+  --border-color: #e0e0e0;
+  height: 60px;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tab-button {
+  --color: #7a7a7a;
+  --color-selected: var(--primary-color, #357a50);
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  
+  ion-icon {
+    font-size: 24px;
+  }
+  
+  ion-label {
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+}
+
+.tab-button.tab-selected {
+  --color: var(--primary-color, #357a50);
+  
+  ion-icon {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+} 
