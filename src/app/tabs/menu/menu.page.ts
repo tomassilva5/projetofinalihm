@@ -1,13 +1,38 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonIcon } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
   styleUrls: ['./menu.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonHeader, IonToolbar, IonTitle, IonContent]
+  imports: [CommonModule, IonContent, IonIcon]
 })
 export class MenuPage {
-  constructor() {}
-} 
+  activeTab: 'produtos' | 'servicos' = 'servicos';
+
+  produtos = [
+    'Telemóveis',
+    'Eletrodomésticos',
+    'Smartwatches',
+    'Tv',
+    'Som',
+    'Gaming',
+    'Fotografia',
+    'Drones',
+    'Desktops',
+    'Monitores',
+    'Portáteis',
+    'Acessórios de Telemóvel',
+    'Projeção de imagem'
+  ];
+
+  servicos = [
+    'Serviços para Casa',
+    'Reparações e Manutenções',
+    'Instalações e Configurações',
+    'Suporte Técnico Online',
+    'Devoluções'
+  ];
+}

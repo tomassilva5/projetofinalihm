@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
-import {
-  IonContent,
-  IonIcon,
-  IonTabs,
-  IonTabBar,
-  IonTabButton
-} from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
+import { IonContent, IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonContent, IonIcon, IonTabs, IonTabBar, IonTabButton]
+  imports: [CommonModule, IonContent, IonIcon] // Só o que realmente usas!
 })
 export class HomePage {
   produtos = [

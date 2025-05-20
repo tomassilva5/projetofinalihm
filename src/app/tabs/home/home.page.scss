@@ -3,12 +3,14 @@
   padding-bottom: 70px;
 }
 
+/* Header verde */
 .home-header {
   display: flex;
   align-items: center;
   background: #357a50;
   padding: 16px 16px 12px 16px;
-
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
 }
 
 .circle-avatar {
@@ -51,19 +53,18 @@
   margin-right: 8px;
 }
 
+/* Logo central */
 .logo-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 14px 0 8px 0;
+  margin: 20px auto;
   font-size: 2.1rem;
   font-family: 'Montserrat', Arial, sans-serif;
   border: 2px solid #357a50;
   border-radius: 22px;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 18px;
+  padding: 6px 18px;
 }
 
 .nt-green {
@@ -79,18 +80,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: 20px 0;
+  padding: 0 10px;
 }
 
 .menu-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  ion-icon {
-    color: #357a50;
-    font-size: 2rem; /* Aumenta o tamanho do ícone (ajusta conforme necessário) */
-  }
 }
 
 .menu-icon-circle {
@@ -102,14 +99,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
-  font-size: 2rem; /* Ajusta o tamanho da fonte para corresponder ao ícone */
+  margin-bottom: 8px;
+}
+
+.menu-icon-circle ion-icon {
   color: #357a50;
+  font-size: 1.8rem;
 }
 
 .menu-label {
   color: #222;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: center;
   margin-top: 2px;
 }
@@ -156,12 +156,13 @@
   margin-top: 2px;
 }
 
+/* Barra de navegação inferior custom */
 .bottom-tabs {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 56px;
+  height: 64px;
   background: #fff;
   border-top: 1.5px solid #357a50;
   border-bottom-left-radius: 22px;
@@ -170,12 +171,16 @@
   justify-content: space-around;
   align-items: center;
   z-index: 100;
+  box-shadow: 0 -2px 8px #357a5011;
 }
 
 .tab-icon {
-  font-size: 4rem;
-  color: #357a50;
-  opacity: 0.7;
+  font-size: 2.2rem;
+  color: #000;
+  opacity: 0.85;
+  background: transparent;
+  padding: 8px;
+  transition: color 0.2s;
 }
 
 .tab-icon.active {
