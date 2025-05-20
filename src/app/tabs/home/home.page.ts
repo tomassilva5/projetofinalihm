@@ -11,11 +11,11 @@ import { IonContent, IonIcon } from '@ionic/angular/standalone';
 })
 export class HomePage {
   produtos = [
-    { img: 'assets/produtos/xiaomi15ultra.jpg', preco: '1424,98€', nome: 'Xiaomi 15 Ultra' },
-    { img: 'assets/produtos/iphone16promax.jpg', preco: '1371.00€', nome: 'Iphone 16 Pro Max' },
-    { img: 'assets/produtos/asusvivobook.jpg', preco: '899,99€', nome: 'ASUS Vivobook' },
-    { img: 'assets/produtos/smarttvlg.jpg', preco: '25.737,83€', nome: 'Smart Tv LG' },
-    { img: 'assets/produtos/tvsamsung.jpg', preco: '5164,33€', nome: 'Tv Samsung' },
-    { img: 'assets/produtos/ps5pro.jpg', preco: '799,99€', nome: 'PS5 Pro' }
+    { img: 'assets/icon/produtos/xiaomi 15 ultra.png', preco: '1424,98€', nome: 'Xiaomi 15 Ultra' },
+    { img: 'assets/icon/produtos/iphone 16 pro max.png', preco: '1371.00€', nome: 'Iphone 16 Pro Max' },
+    { img: 'assets/icon/produtos/asusvivobook.png', preco: '899,99€', nome: 'ASUS Vivobook' },
+    { img: 'assets/icon/produtos/LG tv.png', preco: '17.360,00€', nome: 'Smart Tv LG' },
+    { img: 'assets/icon/produtos/Samsung tv.png', preco: '5164,33€', nome: 'Tv Samsung' },
+    { img: 'assets/icon/produtos/ps5 pro.png', preco: '799,99€', nome: 'PS5 Pro' }
   ];
 }

@@ -1,9 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Carrinho</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="cart-content">
+  <div class="cart-header">
+    <span class="cart-title">Carrinho</span>
+  </div>
+  <div class="cart-count"><b>O meu carrinho</b> ({{ produtos.length }} artigo{{ produtos.length === 1 ? '' : 's' }})</div>
 
-<ion-content>
-  <h2>Carrinho de Compras</h2>
+  <div class="cart-empty-box">
+    <ion-icon name="cart-outline" class="cart-empty-icon"></ion-icon>
+    <div class="cart-empty-main">Carrinho vazio</div>
+    <div class="cart-empty-sub">Explora o site e descobre as melhores promoções</div>
+  </div>
+
+  <div class="cart-summary">
+    <div class="cart-row">
+      <span>Subtotal</span>
+      <span>€{{ subtotal | number:'1.2-2' }}</span>
+    </div>
+    <div class="cart-row">
+      <span>Custos de envio estimados</span>
+      <span>€{{ envio | number:'1.2-2' }}</span>
+    </div>
+    <hr class="cart-divider" />
+    <div class="cart-row cart-total">
+      <span>Total</span>
+      <span class="cart-total-value">€{{ total | number:'1.2-2' }}</span>
+    </div>
+  </div>
 </ion-content> 
