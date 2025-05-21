@@ -1,0 +1,33 @@
+<ion-content class="telemoveis-content">
+  <!-- Header verde com seta e pesquisa embutida -->
+  <div class="telemoveis-header">
+    <ion-icon name="arrow-back-outline" class="back-icon" (click)="voltar()"></ion-icon>
+    <div class="search-bar">
+      <ion-icon name="search-outline" class="search-icon"></ion-icon>
+      <input type="text" placeholder="Pesquisar..." class="search-input" />
+    </div>
+  </div>
+
+  <!-- Título -->
+  <div class="telemoveis-title">Telemóveis</div>
+
+  <!-- Filtros -->
+  <div class="telemoveis-filtros">
+    <div class="filtro-item">
+      <ion-icon name="options-outline"></ion-icon> FILTRAR
+    </div>
+    <div class="filtro-item">
+      <ion-icon name="swap-vertical-outline"></ion-icon> ORDENAR
+    </div>
+  </div>
+
+  <!-- Grid de produtos -->
+  <div class="telemoveis-grid">
+    <div class="telemovel-card" *ngFor="let produto of telemoveis">
+      <img [src]="produto.img" alt="produto" class="telemovel-img" />
+      <div class="telemovel-preco">{{produto.preco}}</div>
+      <div class="telemovel-nome">{{produto.nome}}</div>
+    </div>
+  </div>
+
+  

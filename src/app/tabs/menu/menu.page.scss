@@ -3,46 +3,53 @@
   padding-bottom: 70px;
 }
 
-/* Header verde com pesquisa */
+/* Header verde com barra de pesquisa arredondada */
 .menu-header {
-  background: #357a50;
-  padding: 16px 16px 12px 16px;
+  background: #42744c;
+  padding: 18px 0 12px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom-left-radius: 22px;
-  border-bottom-right-radius: 22px;
-  min-height: 70px;
-  box-sizing: border-box;
 }
 
-.search-container {
+.search-bar {
   display: flex;
   align-items: center;
   background: #fff;
-  border-radius: 22px;
-  padding: 0 12px;
-  height: 38px;
-  width: 100%;
-  max-width: 500px;
+  border-radius: 24px;
+  width: 96%;
+  max-width: 480px;
+  height: 44px;
+  padding: 0 16px;
+  box-shadow: none;
+  border: none;
+  position: relative;
+}
+
+.search-icon {
+  color: #42744c;
+  font-size: 1.35rem;
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .search-input {
   border: none;
   background: transparent;
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.13rem;
   color: #222;
   outline: none;
+  padding: 0;
+  font-family: inherit;
+  &::placeholder {
+    color: #888;
+    opacity: 1;
+    font-weight: 400;
+  }
 }
 
-.search-icon {
-  color: #888;
-  font-size: 1.2rem;
-  margin-right: 8px;
-}
-
-/* Tabs Produtos/Serviços */
+/* Tabs exatamente como pediste */
 .tab-container {
   display: flex;
   width: 100%;
@@ -52,42 +59,55 @@
 .tab {
   flex: 1;
   text-align: center;
-  padding: 17px 0 15px 0;
-  font-size: 1.17rem;
+  padding: 22px 0 16px 0;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #222;
-  background: #f5f5f5;
+  background: #fff;
   position: relative;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.15s, background 0.15s;
+  border: none;
 }
 
-.tab.active {
-  color: #357a50;
-  background: #e9edea;
+/* Produtos ativo: verde */
+.tab.active:first-child {
+  color: #42744c;
+  background: #fff;
   font-weight: 900;
 }
-
-.tab.active:last-child {
-  color: #4d69e5; /* azul para Serviços ativo */
-  background: #f3f6ff;
-}
-
-.tab.active::after {
+.tab.active:first-child::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background-color: currentColor;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #42744c;
 }
 
-.tab:not(.active) {
-  font-weight: 700;
+/* Serviços ativo: azul */
+.tab.active:last-child {
+  color: #7b98fa;
+  background: #e5e6e9;
+  font-weight: 900;
+}
+.tab.active:last-child::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #7b98fa;
 }
 
-/* Lista de categorias/serviços */
+.tab:not(.active)::after {
+  display: none;
+}
+
 .category-list {
   width: 100%;
   background: #fff;
@@ -99,16 +119,27 @@
   align-items: center;
   padding: 17px 16px 15px 18px;
   border-bottom: 1px solid #e0e0e0;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   color: #222;
+  cursor: pointer;
+  transition: background 0.12s;
 }
 
-.category-item ion-icon {
-  color: #888;
-  font-size: 1.2rem;
+.category-item:active {
+  background: #f3f6f3;
 }
 
-/* Barra de navegação inferior custom */
+/* Chevron igual à segunda imagem */
+.chevron {
+  color: #616161;
+  font-size: 1.55rem;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* Barra de navegação inferior */
 .bottom-tabs {
   position: fixed;
   left: 0;
@@ -116,18 +147,26 @@
   bottom: 0;
   height: 56px;
   background: #fff;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1.5px solid #42744c;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 100;
+  box-shadow: 0 -2px 8px #42744c11;
 }
 
 .tab-icon {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: #222;
+  opacity: 0.85;
+  background: transparent;
+  padding: 8px;
+  transition: color 0.2s;
 }
 
 .tab-icon.active {
-  color: #357a50;
+  color: #42744c;
+  opacity: 1;
 }

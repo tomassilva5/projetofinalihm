@@ -57,18 +57,25 @@
   margin-right: 8px;
 }
 
-/* Logo central */
+/* Logo central (menor) */
 .logo-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
-  font-size: 2.1rem;
+  margin: 16px auto;
+  font-size: 1.4rem;               /* menor */
   font-family: 'Montserrat', Arial, sans-serif;
   border: 2px solid #357a50;
   border-radius: 22px;
   width: fit-content;
-  padding: 6px 18px;
+  padding: 3px 10px;               /* menor padding */
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.13s cubic-bezier(.4,0,.2,1);
+}
+
+.logo-center:active {
+  transform: scale(0.93);
 }
 
 .nt-green {
@@ -84,8 +91,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 20px 0;
-  padding: 0 10px;
+  margin: 18px 0;
+  padding: 0 6px;
 }
 
 .menu-item {
@@ -121,9 +128,10 @@
 .divider {
   border: none;
   border-top: 1.5px solid #357a50;
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
 }
 
+/* Grid dos produtos - cards menores mas não mais compactos */
 .produtos-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -132,14 +140,14 @@
 }
 
 .produto-card {
-  
   background: #fff;
-  border-radius: 12px;
+  border-radius: 10px;             /* ligeiramente menor */
   box-shadow: 0 2px 7px #0001;
-  padding: 12px 8px;
+  padding: 12px 8px;               /* mantém o padding */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transform: scale(0.88);          /* reduz o tamanho visual do card */
 }
 
 .produto-img {
@@ -152,13 +160,13 @@
 .produto-preco {
   color: #357a50;
   font-weight: bold;
-  font-size: 1.15rem;
+  font-size: 1.05rem;             /* ligeiramente menor */
   margin-bottom: 5px;
 }
 
 .produto-nome {
   color: #222;
-  font-size: 1rem;
+  font-size: 0.92rem;             /* ligeiramente menor */
   margin-top: 2px;
   margin-top: auto;
 }
@@ -169,7 +177,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 64px;
+  height: 56px;
   background: #fff;
   border-top: 1.5px solid #357a50;
   border-bottom-left-radius: 22px;

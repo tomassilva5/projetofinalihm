@@ -11,18 +11,26 @@ ion-tab-bar.custom-tab-bar {
   justify-content: space-between;
   padding-bottom: env(safe-area-inset-bottom);
 
-  /* Remove labels */
   ion-label {
-    display: none;
+    display: block;             /* Mostra o texto */
+    font-size: 0.77rem;         /* Tamanho pequeno */
+    color: #222;
+    margin-top: 2px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    pointer-events: none;
   }
 }
 
 ion-tab-button {
-  --color: #111; /* preto padrão */
-  --color-selected: #357a50; /* verde no selecionado */
+  --color: #111;
+  --color-selected: #357a50;
   background: transparent;
   flex: 1 1 0;
   display: flex;
+  flex-direction: column;       /* Alinha ícone e texto verticalmente */
   align-items: center;
   justify-content: center;
   min-width: 0;
@@ -32,13 +40,19 @@ ion-tab-button {
   ion-icon {
     font-size: 2.2rem;
     color: var(--color);
-    transition: color 0.2s;
+    transition: color 0.2s, transform 0.2s;
+    display: block;
+    margin-bottom: 0px;
   }
 
   &.tab-selected ion-icon {
     color: #357a50;
-    /* destaca o selecionado */
     transform: scale(1.1);
+  }
+
+  &.tab-selected ion-label {
+    color: #357a50;
+    font-weight: 700;
   }
 }
 
