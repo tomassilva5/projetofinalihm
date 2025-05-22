@@ -5,11 +5,16 @@
 
 /* Header verde com barra de pesquisa arredondada */
 .menu-header {
-  background: #42744c;
-  padding: 18px 0 12px 0;
   display: flex;
+  max-width: auto;
+  margin: 0;
   align-items: center;
-  justify-content: center;
+  background: #357a50;
+  padding: 16px 16px 12px 16px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  min-height: 70px;
+  box-sizing: border-box;
 }
 
 .search-bar {

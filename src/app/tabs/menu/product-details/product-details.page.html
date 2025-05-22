@@ -1,0 +1,29 @@
+<ion-content class="product-details-content">
+  <!-- Header verde com seta para voltar e nome do produto -->
+  <div class="product-details-header">
+    <ion-icon name="arrow-back-outline" class="back-icon" (click)="voltar()"></ion-icon>
+    <span class="product-details-title">{{ product?.name || 'Detalhes do Produto' }}</span>
+  </div>
+
+  <div *ngIf="product; else notFound" class="product-details-body">
+    <img [src]="product.image" [alt]="product.name" class="product-img" />
+    <div class="product-info">
+      <div class="product-preco">{{ product.price | currency:'EUR' }}</div>
+      <div class="product-desc">{{ product.description }}</div>
+      <div class="product-caracteristicas">
+        <h3>Características</h3>
+        <ul>
+          <li><b>Marca:</b> {{ product.brand }}</li>
+          <li><b>Categoria:</b> {{ product.category }}</li>
+          <li><b>Stock:</b> {{ product.stock }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ng-template #notFound>
+    <div class="product-not-found">
+      Produto não encontrado.<br />
+      <button ion-button (click)="voltar()">Voltar</button>
+    </div>
+  </ng-template>
+</ion-content> 

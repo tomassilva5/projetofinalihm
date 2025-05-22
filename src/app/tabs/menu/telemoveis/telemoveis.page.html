@@ -1,0 +1,35 @@
+<ion-content class="telemoveis-content">
+  <!-- Header verde com seta para voltar, título e lupa -->
+  <div class="telemoveis-header">
+    <ion-icon name="arrow-back-outline" class="back-icon" (click)="voltar()"></ion-icon>
+    <span class="telemoveis-title">Telemóveis</span>
+    <ion-icon name="search-outline" class="search-header-icon" (click)="abrirPesquisa()"></ion-icon>
+  </div>
+  <div class="header-gap"></div>
+  <!-- Caixa de pesquisa sobreposta -->
+  <div class="pesquisa-overlay" *ngIf="pesquisaAberta">
+    <input type="text" class="pesquisa-input" placeholder="Pesquisar..." autofocus />
+    <ion-icon name="close-outline" class="pesquisa-fechar" (click)="fecharPesquisa()"></ion-icon>
+  </div>
+
+  <!-- Filtros -->
+  <div class="telemoveis-filtros">
+    <button class="filtro-btn">
+      <ion-icon name="options-outline"></ion-icon> FILTRAR
+    </button>
+    <button class="filtro-btn">
+      <ion-icon name="swap-vertical-outline"></ion-icon> ORDENAR
+    </button>
+  </div>
+
+  <!-- Grid de produtos -->
+  <div class="produtos-grid">
+    <div class="produto-card" *ngFor="let product of products" [routerLink]="['/tabs/menu/product', product.id]">
+      <img [src]="product.image" [alt]="product.name" class="produto-img" />
+      <div class="produto-preco">{{ product.price | currency:'EUR' }}</div>
+      <div class="produto-nome">{{ product.name }}</div>
+    </div>
+  </div>
+</ion-content>
+
+  

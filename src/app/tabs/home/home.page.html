@@ -1,4 +1,5 @@
 <ion-content class="home-content">
+  <!-- Header verde -->
   <div class="home-header">
     <div class="circle-avatar">NT</div>
     <div class="search-bar">
@@ -8,7 +9,7 @@
   </div>
 
   <!-- LOGO CLICÁVEL -->
-  <div class="logo-center" (click)="irParaServicos()">
+  <div class="logo-center" (click)="irParaServicos()" (click)="animarLogo($event)">
     <span class="nt-green">NT</span><span class="nt-black">resolve</span>
   </div>
 
@@ -35,11 +36,27 @@
 
   <hr class="divider" />
 
-  <div class="produtos-grid">
-    <div class="produto-card" *ngFor="let produto of produtos">
-      <img [src]="produto.img" alt="produto" class="produto-img" />
-      <div class="produto-preco">{{produto.preco}}</div>
-      <div class="produto-nome">{{produto.nome}}</div>
+  <!-- Produtos em Destaque -->
+  <div class="section">
+    <h2>Produtos em Destaque</h2>
+    <div class="produtos-grid">
+      <div class="produto-card" *ngFor="let product of featuredProducts" [routerLink]="['/product', product.id]">
+        <img [src]="product.image" [alt]="product.name" class="produto-img" />
+        <div class="produto-preco">{{ product.price | currency:'EUR' }}</div>
+        <div class="produto-nome">{{ product.name }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Produtos Recentes -->
+  <div class="section">
+    <h2>Produtos Recentes</h2>
+    <div class="produtos-grid">
+      <div class="produto-card" *ngFor="let product of recentProducts" [routerLink]="['/product', product.id]">
+        <img [src]="product.image" [alt]="product.name" class="produto-img" />
+        <div class="produto-preco">{{ product.price | currency:'EUR' }}</div>
+        <div class="produto-nome">{{ product.name }}</div>
+      </div>
     </div>
   </div>
 </ion-content>
