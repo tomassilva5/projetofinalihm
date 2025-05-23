@@ -1,1 +1,114 @@
-// Add custom styles here if needed 
+.profile-content {
+  --ion-background-color: #fff;
+  padding-bottom: 70px;
+}
+
+/* Header igual ao menu: verde, sem curvas, preenche o topo */
+.profile-header {
+  display: flex;
+  align-items: center;
+  background: #357a50;
+  padding: 16px 16px 12px 16px;
+  min-height: 70px;
+  box-sizing: border-box;
+  border-radius: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: #357a50;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.profile-greeting {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.profile-hello {
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.profile-notification {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-left: 8px;
+}
+
+/* Lista de opções igual ao menu */
+.profile-list {
+  width: 100%;
+  background: #fff;
+  margin-top: 2px;
+}
+
+.profile-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 16px 15px 18px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.08rem;
+  color: #222;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.profile-list-item:active {
+  background: #f3f6f3;
+}
+
+/* Chevron igual ao menu */
+.profile-chevron {
+  color: #616161;
+  font-size: 1.55rem;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* Barra de navegação inferior igual ao menu */
+.bottom-tabs {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: #fff;
+  border-top: 1.5px solid #42744c;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 -2px 8px #42744c11;
+}
+
+.tab-icon {
+  font-size: 2.2rem;
+  color: #222;
+  opacity: 0.85;
+  background: transparent;
+  padding: 8px;
+  transition: color 0.2s;
+}
+
+.tab-icon.active {
+  color: #42744c;
+  opacity: 1;
+}
