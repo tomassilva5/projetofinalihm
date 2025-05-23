@@ -3,26 +3,26 @@
   padding-bottom: 70px;
 }
 
-/* Header verde com barra de pesquisa arredondada */
+/* Header verde sem curvas, preenche todo o topo */
 .menu-header {
   display: flex;
-  max-width: auto;
-  margin: 0;
   align-items: center;
   background: #357a50;
   padding: 16px 16px 12px 16px;
-  border-bottom-left-radius: 22px;
-  border-bottom-right-radius: 22px;
   min-height: 70px;
   box-sizing: border-box;
+  border-radius: 0;
+  width: 100%;
+  margin: 0;
 }
 
+/* Barra de pesquisa arredondada */
 .search-bar {
   display: flex;
   align-items: center;
   background: #fff;
   border-radius: 24px;
-  width: 96%;
+  width: 100%;
   max-width: 480px;
   height: 44px;
   padding: 0 16px;
@@ -54,7 +54,7 @@
   }
 }
 
-/* Tabs exatamente como pediste */
+/* Tabs Produtos/Serviços */
 .tab-container {
   display: flex;
   width: 100%;
@@ -75,11 +75,14 @@
   border: none;
 }
 
+.tab.active {
+  background: #e5e6e9;  /* Fundo cinzento claro para ambos */
+  font-weight: 700;
+}
+
 /* Produtos ativo: verde */
 .tab.active:first-child {
   color: #42744c;
-  background: #fff;
-  font-weight: 900;
 }
 .tab.active:first-child::after {
   content: '';
@@ -95,8 +98,6 @@
 /* Serviços ativo: azul */
 .tab.active:last-child {
   color: #7b98fa;
-  background: #e5e6e9;
-  font-weight: 900;
 }
 .tab.active:last-child::after {
   content: '';
