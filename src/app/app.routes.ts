@@ -50,7 +50,16 @@ export const routes: Routes = [
       },
       {
         path: 'profile',
-        loadComponent: () => import('./tabs/profile/profile.page').then((m) => m.ProfilePage),
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./tabs/profile/profile.page').then((m) => m.ProfilePage),
+          },
+          {
+            path: 'notificacoes',
+            loadComponent: () => import('./notificacoes/notificacoes.page').then(m => m.NotificacoesPage)
+          }
+        ]
       },
       {
         path: '',
@@ -62,6 +71,5 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: 'splash',
-  },
-
+  }
 ];

@@ -5,13 +5,16 @@
     <div class="profile-greeting">
       <div class="profile-hello">Olá, Utilizador!</div>
     </div>
-    <ion-icon name="notifications" class="profile-notification"></ion-icon>
+    <ion-icon name="notifications" class="profile-notification" (click)="abrirNotificacoes()"></ion-icon>
   </div>
 
   <!-- Lista de opções -->
   <div class="profile-list">
-    <div class="profile-list-item" *ngFor="let item of profileOptions">
+    <div class="profile-list-item"
+         *ngFor="let item of profileOptions"
+         (click)="item === 'Notificações' ? abrirNotificacoes() : null">
       <span>{{item}}</span>
       <ion-icon name="chevron-forward-outline" class="profile-chevron"></ion-icon>
     </div>
   </div>
+</ion-content>

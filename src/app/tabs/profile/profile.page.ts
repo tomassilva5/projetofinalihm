@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonContent, IonIcon, IonTabBar, IonTabButton, IonLabel } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -21,4 +22,10 @@ export class ProfilePage {
     'Preferencias de Comunicação',
     'Gestão de Cookies'
   ];
+
+  constructor(private router: Router) {}
+
+  abrirNotificacoes() {
+    this.router.navigate(['/tabs/profile/notificacoes']);
+  }
 }
