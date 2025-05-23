@@ -14,17 +14,102 @@
 
   <!-- Filtros -->
   <div class="telemoveis-filtros">
-    <button class="filtro-btn">
+    <button class="filtro-btn" [ngClass]="{ 'ativo': filtroMenuAberto }" (click)="toggleFiltro($event)">
       <ion-icon name="options-outline"></ion-icon> FILTRAR
     </button>
-    <button class="filtro-btn">
+    <button class="filtro-btn" (click)="toggleOrdenar($event)">
       <ion-icon name="swap-vertical-outline"></ion-icon> ORDENAR
     </button>
   </div>
 
+  <!-- Backdrop do Popover de Ordenação -->
+  <div class="ordenar-backdrop" id="ordenar-backdrop" style="display:none;" (click)="fecharOrdenar()"></div>
+
+  <!-- Popover de Ordenação -->
+  <div id="ordenar-popover" class="ordenar-popover" style="display:none;">
+    <div class="ordenar-header">
+      <span>Ordenar por</span>
+      <ion-icon name="close-outline" class="close-popover" (click)="fecharOrdenar()"></ion-icon>
+    </div>
+    <div class="ordenar-options">
+      <label class="ordenar-option">
+        <input type="radio" name="ordenar" [checked]="selectedOrder === 'relevancia'" (change)="ordenarProdutos('relevancia')" /> Relevância
+      </label>
+      <label class="ordenar-option">
+        <input type="radio" name="ordenar" [checked]="selectedOrder === 'melhor-avaliacao'" (change)="ordenarProdutos('melhor-avaliacao')" /> Melhor avaliação
+      </label>
+      <label class="ordenar-option">
+        <input type="radio" name="ordenar" [checked]="selectedOrder === 'mais-vendidos'" (change)="ordenarProdutos('mais-vendidos')" /> Mais vendidos
+      </label>
+      <label class="ordenar-option">
+        <input type="radio" name="ordenar" [checked]="selectedOrder === 'melhor-desconto'" (change)="ordenarProdutos('melhor-desconto')" /> Melhor desconto
+      </label>
+      <label class="ordenar-option">
+        <input type="radio" name="ordenar" [checked]="selectedOrder === 'preco-desc'" (change)="ordenarProdutos('preco-desc')" /> Preço mais alto
+      </label>
+      <label class="ordenar-option">
+        <input type="radio" name="ordenar" [checked]="selectedOrder === 'preco-asc'" (change)="ordenarProdutos('preco-asc')" /> Preço mais baixo
+      </label>
+    </div>
+  </div>
+
+  <!-- Backdrop do Popover de Filtro -->
+  <div class="filtro-backdrop" id="filtro-backdrop" style="display:none;" (click)="fecharFiltro()"></div>
+
+  <!-- Popover de Filtro -->
+  <div id="filtro-popover" class="filtro-popover" style="display:none;">
+    <div class="filtro-header">
+      <span>Filtrar</span>
+      <ion-icon name="close-outline" class="close-popover" (click)="fecharFiltro()"></ion-icon>
+    </div>
+    <div class="filtro-options">
+      <!-- Marca -->
+      <div class="filtro-section">
+        <div class="filtro-label">Marca</div>
+        <div class="filtro-checkboxes">
+          <label *ngFor="let marca of marcasDisponiveis">
+            <input type="checkbox" [checked]="filtroMarcas.includes(marca)" (change)="toggleMarca(marca)" />
+            {{ marca }}
+          </label>
+        </div>
+      </div>
+      <!-- Preço -->
+      <div class="filtro-section">
+        <div class="filtro-label">Preço</div>
+        <div class="filtro-preco-inputs">
+          <input type="number" placeholder="Mín" [(ngModel)]="filtroPrecoMin" min="0" />
+          <span>-</span>
+          <input type="number" placeholder="Máx" [(ngModel)]="filtroPrecoMax" min="0" />
+        </div>
+        <div class="filtro-preco-rapido">
+          <button (click)="setPrecoRapido(0, 250)">Até 250€</button>
+          <button (click)="setPrecoRapido(250, 500)">250€ - 500€</button>
+          <button (click)="setPrecoRapido(500, 1000)">500€ - 1000€</button>
+          <button (click)="setPrecoRapido(1000, null)">Mais de 1000€</button>
+        </div>
+      </div>
+      <!-- Avaliação -->
+      <div class="filtro-section">
+        <div class="filtro-label">Avaliação mínima</div>
+        <div class="filtro-avaliacao">
+          <ng-container *ngFor="let star of [5,4,3,2,1]">
+            <input type="radio" name="filtroAvaliacao" [value]="star" [(ngModel)]="filtroAvaliacao" />
+            <span class="star-group">
+              <ion-icon *ngFor="let s of [].constructor(star)" name="star"></ion-icon>
+            </span>
+          </ng-container>
+        </div>
+      </div>
+      <div class="filtro-actions">
+        <button class="filtro-aplicar" (click)="aplicarFiltro()">Aplicar</button>
+        <button class="filtro-limpar" (click)="limparFiltro()">Limpar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Grid de produtos -->
   <div class="produtos-grid">
-    <div class="produto-card" *ngFor="let product of products" [routerLink]="['/tabs/menu/product', product.id]">
+    <div class="produto-card" *ngFor="let product of filteredProducts" [routerLink]="['/tabs/menu/product', product.id]">
       <img [src]="product.image" [alt]="product.name" class="produto-img" />
       <div class="produto-preco">{{ product.price | currency:'EUR' }}</div>
       <div class="produto-nome">{{ product.name }}</div>

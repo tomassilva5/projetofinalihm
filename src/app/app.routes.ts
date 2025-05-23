@@ -37,6 +37,10 @@ export const routes: Routes = [
           {
             path: 'telemoveis',
             loadComponent: () => import('./tabs/menu/telemoveis/telemoveis.page').then((m) => m.TelemoveisPage),
+          },
+          {
+            path: 'product/:id',
+            loadComponent: () => import('./tabs/menu/product-details/product-details.page').then(m => m.ProductDetailsPage)
           }
         ]
       },

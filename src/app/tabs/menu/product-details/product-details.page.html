@@ -1,25 +1,132 @@
 <ion-content class="product-details-content">
-  <!-- Header verde com seta para voltar e nome do produto -->
+  <!-- Header verde com seta para voltar -->
   <div class="product-details-header">
     <ion-icon name="arrow-back-outline" class="back-icon" (click)="voltar()"></ion-icon>
-    <span class="product-details-title">{{ product?.name || 'Detalhes do Produto' }}</span>
   </div>
 
   <div *ngIf="product; else notFound" class="product-details-body">
-    <img [src]="product.image" [alt]="product.name" class="product-img" />
-    <div class="product-info">
-      <div class="product-preco">{{ product.price | currency:'EUR' }}</div>
-      <div class="product-desc">{{ product.description }}</div>
-      <div class="product-caracteristicas">
-        <h3>Características</h3>
-        <ul>
+    <!-- Nome do produto -->
+    <h1 class="product-name">{{ product.name }}</h1>
+
+    <!-- Imagem do produto -->
+    <div class="product-image-container">
+      <img [src]="product.image" [alt]="product.name" class="product-img" />
+    </div>
+
+    <!-- Botão fixo com preço e adicionar ao carrinho -->
+    <div class="fixed-bottom-bar">
+      <div class="price-container">
+        <span class="product-price">{{ product.price | currency:'EUR' }}</span>
+      </div>
+      <button class="add-to-cart-btn" (click)="adicionarAoCarrinho()">
+        <ion-icon name="cart-outline"></ion-icon>
+        Adicionar ao Carrinho
+      </button>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+      <!-- Descrição -->
+      <div class="section">
+        <h2>Descrição</h2>
+        <p class="product-desc">{{ product.description }}</p>
+      </div>
+
+      <!-- Características -->
+      <div class="section">
+        <h2>Características</h2>
+        <ul class="features-list">
           <li><b>Marca:</b> {{ product.brand }}</li>
           <li><b>Categoria:</b> {{ product.category }}</li>
-          <li><b>Stock:</b> {{ product.stock }}</li>
+          <li><b>Stock:</b> {{ product.stock }} unidades</li>
         </ul>
+      </div>
+
+      <!-- Reviews -->
+      <div class="section">
+        <h2>Avaliações</h2>
+        <div class="reviews-container">
+          <div class="rating-summary">
+            <div class="average-rating">4.5</div>
+            <div class="stars">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-half"></ion-icon>
+            </div>
+            <div class="total-reviews">Baseado em 128 avaliações</div>
+          </div>
+
+          <!-- Lista de Avaliações -->
+          <div class="reviews-list">
+            <div class="review-item">
+              <div class="review-header">
+                <div class="reviewer-info">
+                  <div class="reviewer-name">João Silva</div>
+                  <div class="review-date">15/03/2024</div>
+                </div>
+                <div class="review-stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+              </div>
+              <div class="review-content">
+                Excelente produto! A qualidade é incrível e a entrega foi super rápida. Recomendo fortemente.
+              </div>
+            </div>
+
+            <div class="review-item">
+              <div class="review-header">
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Maria Santos</div>
+                  <div class="review-date">10/03/2024</div>
+                </div>
+                <div class="review-stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="review-content">
+                Bom produto, mas a bateria poderia durar mais. No geral estou satisfeita com a compra.
+              </div>
+            </div>
+
+            <div class="review-item">
+              <div class="review-header">
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Pedro Costa</div>
+                  <div class="review-date">05/03/2024</div>
+                </div>
+                <div class="review-stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                </div>
+              </div>
+              <div class="review-content">
+                Produto muito bom, atendeu todas as minhas expectativas. A câmera é excelente!
+              </div>
+            </div>
+          </div>
+
+          <button class="write-review-btn">
+            <ion-icon name="create-outline"></ion-icon>
+            Escrever Avaliação
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
   <ng-template #notFound>
     <div class="product-not-found">
       Produto não encontrado.<br />

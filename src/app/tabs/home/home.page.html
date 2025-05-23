@@ -40,7 +40,7 @@
   <div class="section">
     <h2>Produtos em Destaque</h2>
     <div class="produtos-grid">
-      <div class="produto-card" *ngFor="let product of featuredProducts" [routerLink]="['/product', product.id]">
+      <div class="produto-card" *ngFor="let product of featuredProducts" [routerLink]="['/tabs/menu/product', product.id]">
         <img [src]="product.image" [alt]="product.name" class="produto-img" />
         <div class="produto-preco">{{ product.price | currency:'EUR' }}</div>
         <div class="produto-nome">{{ product.name }}</div>
@@ -52,7 +52,7 @@
   <div class="section">
     <h2>Produtos Recentes</h2>
     <div class="produtos-grid">
-      <div class="produto-card" *ngFor="let product of recentProducts" [routerLink]="['/product', product.id]">
+      <div class="produto-card" *ngFor="let product of recentProducts" [routerLink]="['/tabs/menu/product', product.id]">
         <img [src]="product.image" [alt]="product.name" class="produto-img" />
         <div class="produto-preco">{{ product.price | currency:'EUR' }}</div>
         <div class="produto-nome">{{ product.name }}</div>

@@ -13,12 +13,17 @@ export const routes: Routes = [
       },
       {
         path: 'menu',
-        loadComponent: () =>
-          import('./menu/menu.page').then((m) => m.MenuPage),
-      },
-      {
-        path: 'menu/product/:id',
-        loadComponent: () => import('./menu/product-details/product-details.page').then(m => m.ProductDetailsPage)
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./menu/menu.page').then((m) => m.MenuPage),
+          },
+          {
+            path: 'product/:id',
+            loadComponent: () => import('./menu/product-details/product-details.page').then(m => m.ProductDetailsPage)
+          }
+        ]
       },
       {
         path: 'cart',
