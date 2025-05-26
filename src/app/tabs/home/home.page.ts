@@ -54,4 +54,8 @@ export class HomePage implements OnInit {
     void el.offsetWidth;
     el.classList.add('logo-anim');
   }
+
+  navigateToWorkingOnIt() {
+    this.router.navigate(['/funcionalidades-adicionais/working-on-it']);
+  }
 }

@@ -47,13 +47,12 @@
     </ion-button>
   </form>
 
-  <div class="btn-register-fixed">
-    <div class="signup-info">
-      <div class="signup-title">Ainda não tens conta?</div>
-      <hr class="signup-divider" />
-      <div class="signup-desc">
-        Se ainda não tens conta regista aqui e tira partido das melhores vantagens.
-      </div>
+  <div class="signup-info">
+    <h2 class="signup-title">Ainda não tens conta?</h2>
+    <hr class="signup-divider">
+    <div class="social-login">
+      <ion-icon name="logo-google" class="social-icon" (click)="loginWithGoogle()"></ion-icon>
+      <ion-icon name="logo-facebook" class="social-icon" (click)="loginWithFacebook()"></ion-icon>
     </div>
     <ion-button expand="block" fill="outline" (click)="irParaRegistar()" class="btn-register">
       REGISTAR

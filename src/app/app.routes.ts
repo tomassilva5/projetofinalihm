@@ -41,7 +41,7 @@ export const routes: Routes = [
           {
             path: 'product/:id',
             loadComponent: () => import('./tabs/menu/product-details/product-details.page').then(m => m.ProductDetailsPage)
-          }
+          },
         ]
       },
       {
@@ -55,10 +55,6 @@ export const routes: Routes = [
             path: '',
             loadComponent: () => import('./tabs/profile/profile.page').then((m) => m.ProfilePage),
           },
-          {
-            path: 'notificacoes',
-            loadComponent: () => import('./notificacoes/notificacoes.page').then(m => m.NotificacoesPage)
-          }
         ]
       },
       {

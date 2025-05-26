@@ -16,6 +16,7 @@ ion-content,
   display: flex;
   align-items: flex-start;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .circle-avatar {
@@ -41,12 +42,16 @@ ion-content,
   margin-top: 18px;
   font-family: 'Montserrat', Arial, sans-serif;
   letter-spacing: 0.5px;
+  
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
 }
 
 .custom-item {
@@ -57,6 +62,7 @@ form {
   border-radius: var(--border-radius-global, 14px);
   min-height: 52px;
   position: relative; /* Para posicionar o ícone */
+  width: 100%;
 }
 
 .custom-input {
@@ -80,7 +86,7 @@ form {
   font-size: 1.8rem; /* Tamanho maior para garantir visibilidade */
   position: absolute;
   right: 10px;
-  top: 27%;
+  top: 37%;
   transform: translateY(-50%);
   z-index: 100; /* Garante que fique acima de outros elementos */
   background: transparent;
@@ -104,14 +110,18 @@ form {
   border-radius: var(--border-radius-global, 14px); 
   font-size: 1.15rem;
   height: 52px;
+  width: 100%;
 }
 
 /* Bloco informativo "Ainda não tens conta?" */
 .signup-info {
-  max-width: 440px;
-  margin: 40px auto 0 auto;
-  padding: 0 8px 24px 8px;
-  text-align: left;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: none;
 }
 
 .signup-title {
@@ -164,8 +174,27 @@ form {
   --border-color: var(--primary-color, #357a50); 
   --color: var(--primary-color, #357a50);
   background: #fff;
+  width: 100%;
 }
 
 ion-icon {
   font-size: 1.3rem;
+}
+
+body {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+ion-content {
+  width: 100%;
+  box-sizing: border-box;
 }

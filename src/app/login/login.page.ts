@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
 
   onSubmit() {
     if (this.emailOuTelefone && this.password) {
+      localStorage.setItem('userName', this.emailOuTelefone);
       this.navCtrl.navigateRoot('/tabs/home');
     }
   }
@@ -40,5 +41,13 @@ export class LoginPage implements OnInit {
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword; // Alterna entre mostrar e ocultar 
+  }
+
+  loginWithGoogle() {
+    window.location.href = 'https://accounts.google.com/signin';
+  }
+
+  loginWithFacebook() {
+    window.location.href = 'https://www.facebook.com/login';
   }
 }
