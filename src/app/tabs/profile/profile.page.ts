@@ -33,7 +33,7 @@ export class ProfilePage implements OnInit {
   }
 
   abrirNotificacoes() {
-    this.router.navigate(['/notificacoes']);
+    this.router.navigate(['/tabs/profile/notificacoes']);
   }
 
   navigateToWorkingOnIt() {

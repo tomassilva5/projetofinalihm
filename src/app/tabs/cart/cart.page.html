@@ -4,10 +4,28 @@
   </div>
   <div class="cart-count"><b>O meu carrinho</b> ({{ produtos.length }} artigo{{ produtos.length === 1 ? '' : 's' }})</div>
 
-  <div class="cart-empty-box">
+  <div *ngIf="produtos.length === 0" class="cart-empty-box">
     <ion-icon name="cart-outline" class="cart-empty-icon"></ion-icon>
     <div class="cart-empty-main">Carrinho vazio</div>
     <div class="cart-empty-sub">Explora o site e descobre as melhores promoções</div>
+  </div>
+
+  <div *ngFor="let produto of produtos; let i = index" class="cart-item-card">
+    <div class="cart-item">
+      <img [src]="produto.image" [alt]="produto.name" class="cart-item-img" />
+      <div class="cart-item-details">
+        <h3>{{ produto.name }}</h3>
+        <div class="quantity-controls">
+          <button (click)="produto.quantity > 1 ? decreaseQuantity(i) : removerProduto(i)">
+            <ion-icon [name]="produto.quantity > 1 ? 'remove' : 'trash'"></ion-icon>
+          </button>
+          <span>{{ produto.quantity }}</span>
+          <button (click)="increaseQuantity(i)">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="cart-summary">
