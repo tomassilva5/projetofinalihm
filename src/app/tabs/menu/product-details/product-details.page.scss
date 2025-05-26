@@ -86,31 +86,6 @@
   color: #357a50;
 }
 
-.add-to-cart-btn {
-  flex: 2;
-  background: #357a50;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
-
-  &:hover {
-    background: #2b6240;
-  }
-
-  ion-icon {
-    font-size: 1.2rem;
-  }
-}
-
 .main-content {
   padding: 0 16px;
 }
@@ -266,39 +241,21 @@
   line-height: 1.5;
 }
 
-::ng-deep .custom-toast {
-  --background: #357a50;
-  --border-radius: 8px;
-  --box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  --color: white;
-  --min-height: 48px;
-  --min-width: 300px;
-  --max-width: 90%;
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --padding-top: 12px;
-  --padding-bottom: 12px;
+.add-to-cart-btn {
+  background: #357a50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
 
-  .toast-wrapper {
-    padding: 0;
-  }
-
-  .toast-message {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: white;
-  }
-
-  .toast-button {
-    background: #ffffff !important;
-    color: #357a50 !important;
-    border: 1.5px solid #357a50;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    margin-left: 8px;
-    padding: 4px 8px;
-    border-radius: 4px;
-  }
+.add-to-cart-btn:hover {
+  background: #357a50;
 } 

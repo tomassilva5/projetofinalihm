@@ -60,60 +60,20 @@
 
           <!-- Lista de Avaliações -->
           <div class="reviews-list">
-            <div class="review-item">
+            <div class="review-item" *ngFor="let review of product.reviews">
               <div class="review-header">
                 <div class="reviewer-info">
-                  <div class="reviewer-name">João Silva</div>
-                  <div class="review-date">15/03/2024</div>
+                  <div class="reviewer-name">{{ review.userName }}</div>
+                  <div class="review-date">{{ review.date }}</div>
                 </div>
                 <div class="review-stars">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
+                  <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+                    <ion-icon [name]="review.rating >= star ? 'star' : (review.rating >= star - 0.5 ? 'star-half' : 'star-outline')"></ion-icon>
+                  </ng-container>
                 </div>
               </div>
               <div class="review-content">
-                Excelente produto! A qualidade é incrível e a entrega foi super rápida. Recomendo fortemente.
-              </div>
-            </div>
-
-            <div class="review-item">
-              <div class="review-header">
-                <div class="reviewer-info">
-                  <div class="reviewer-name">Maria Santos</div>
-                  <div class="review-date">10/03/2024</div>
-                </div>
-                <div class="review-stars">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star-outline"></ion-icon>
-                </div>
-              </div>
-              <div class="review-content">
-                Bom produto, mas a bateria poderia durar mais. No geral estou satisfeita com a compra.
-              </div>
-            </div>
-
-            <div class="review-item">
-              <div class="review-header">
-                <div class="reviewer-info">
-                  <div class="reviewer-name">Pedro Costa</div>
-                  <div class="review-date">05/03/2024</div>
-                </div>
-                <div class="review-stars">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star-half"></ion-icon>
-                </div>
-              </div>
-              <div class="review-content">
-                Produto muito bom, atendeu todas as minhas expectativas. A câmera é excelente!
+                {{ review.comment }}
               </div>
             </div>
           </div>

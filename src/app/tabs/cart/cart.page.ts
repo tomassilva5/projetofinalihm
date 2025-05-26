@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/angular/standalone';
 import { CartService } from 'src/app/core/services/cart.service';
-import { Product } from 'src/app/core/interfaces/product.interface';
-
-interface CartProduct extends Product {
-  quantity: number;
-}
+import { CartItem } from 'src/app/core/interfaces/cart-item.interface';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +12,7 @@ interface CartProduct extends Product {
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, CommonModule]
 })
 export class CartPage implements OnInit {
-  produtos: CartProduct[] = [];
+  produtos: CartItem[] = [];
   subtotal: number = 0;
   envio: number = 0;
   total: number = 0;
@@ -25,10 +21,7 @@ export class CartPage implements OnInit {
 
   ngOnInit() {
     this.cartService.cart$.subscribe(cart => {
-      this.produtos = cart.map(product => ({
-        ...product,
-        quantity: this.produtos.find(p => p.id === product.id)?.quantity || 1
-      }));
+      this.produtos = cart;
       this.atualizarTotais();
     });
   }
@@ -40,18 +33,16 @@ export class CartPage implements OnInit {
   }
 
   increaseQuantity(index: number) {
-    this.produtos[index].quantity++;
-    this.atualizarTotais();
+    const produto = this.produtos[index];
+    this.cartService.increaseQuantity(produto.id);
   }
 
   decreaseQuantity(index: number) {
-    if (this.produtos[index].quantity > 1) {
-      this.produtos[index].quantity--;
-      this.atualizarTotais();
-    }
+    const produto = this.produtos[index];
+    this.cartService.decreaseQuantity(produto.id);
   }
 
-  adicionarProduto(produto: Product) {
+  adicionarProduto(produto: CartItem) {
     this.cartService.addToCart(produto);
   }
 

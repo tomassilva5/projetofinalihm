@@ -16,7 +16,6 @@ import { CartService } from 'src/app/core/services/cart.service';
 })
 export class ProductDetailsPage implements OnInit {
   product: Product | undefined;
-  private toastPresented = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,14 +38,12 @@ export class ProductDetailsPage implements OnInit {
   }
 
   async adicionarAoCarrinho() {
-    if (this.product && !this.toastPresented) {
-      this.toastPresented = true;
+    if (this.product) {
       this.cartService.addToCart(this.product);
       const toast = await this.toastController.create({
         message: `${this.product.name} adicionado ao carrinho!`,
         duration: 2000,
         position: 'bottom',
-        cssClass: 'custom-toast',
         buttons: [
           {
             text: 'Ver Carrinho',
@@ -59,7 +56,6 @@ export class ProductDetailsPage implements OnInit {
       });
 
       await toast.present();
-      this.toastPresented = false;
     }
   }
 } 
