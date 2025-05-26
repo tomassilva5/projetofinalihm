@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonIcon, IonTabBar, IonTabButton, IonLabel } from '@ionic/angular/standalone';
+import { IonContent, IonIcon, IonTabBar, IonTabButton, IonLabel, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonContent, IonIcon, IonTabBar, IonTabButton, IonLabel]
+  imports: [CommonModule, IonContent, IonIcon, IonTabBar, IonTabButton, IonLabel, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton]
 })
 export class ProfilePage implements OnInit {
   profileOptions = [
@@ -33,14 +33,18 @@ export class ProfilePage implements OnInit {
   }
 
   abrirNotificacoes() {
-    this.router.navigate(['/tabs/profile/notificacoes']);
+    this.router.navigate(['notificacoes']);
   }
 
   navigateToWorkingOnIt() {
-    this.router.navigate(['/tabs/menu/working-on-it']);
+    this.router.navigate(['working-on-it']);
   }
 
-  navigateToNotificacoes() {
-    this.router.navigate(['/notificacoes']);
+  handleOptionClick(option: string) {
+    if (option === 'Notificações') {
+      this.abrirNotificacoes();
+    } else {
+      this.navigateToWorkingOnIt();
+    }
   }
 }

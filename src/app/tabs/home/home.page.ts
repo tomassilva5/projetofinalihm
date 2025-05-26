@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
   }
 
   navigateToWorkingOnIt() {
-    this.router.navigate(['/funcionalidades-adicionais/working-on-it']);
+    this.router.navigate(['working-on-it']);
   }
 
   navigateToCart() {

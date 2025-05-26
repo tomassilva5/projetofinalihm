@@ -20,6 +20,14 @@ export const routes: Routes = [
     loadComponent: () => import('./registar/registar.page').then((m) => m.RegistarPage),
   },
   {
+    path: 'notificacoes',
+    loadComponent: () => import('./notificacoes/notificacoes.page').then((m) => m.NotificacoesPage),
+  },
+  {
+    path: 'working-on-it',
+    loadComponent: () => import('./funcionalidade_adicionais/working-on-it.page').then((m) => m.WorkingOnItPage),
+  },
+  {
     path: 'tabs',
     component: TabsPage,
     children: [
