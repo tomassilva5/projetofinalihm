@@ -25,7 +25,10 @@ export class CartPage implements OnInit {
 
   ngOnInit() {
     this.cartService.cart$.subscribe(cart => {
-      this.produtos = cart.map(product => ({ ...product, quantity: 1 }));
+      this.produtos = cart.map(product => ({
+        ...product,
+        quantity: this.produtos.find(p => p.id === product.id)?.quantity || 1
+      }));
       this.atualizarTotais();
     });
   }
@@ -53,7 +56,8 @@ export class CartPage implements OnInit {
   }
 
   removerProduto(index: number) {
-    this.produtos.splice(index, 1);
+    const produtoRemovido = this.produtos.splice(index, 1)[0];
+    this.cartService.removeFromCart(produtoRemovido);
     this.atualizarTotais();
   }
 } 

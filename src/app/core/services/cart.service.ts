@@ -21,4 +21,12 @@ export class CartService {
     this.cart = [];
     this.cartSubject.next([]);
   }
+
+  removeFromCart(product: Product) {
+    const index = this.cart.findIndex(p => p.id === product.id);
+    if (index > -1) {
+      this.cart.splice(index, 1);
+      this.cartSubject.next([...this.cart]);
+    }
+  }
 } 
