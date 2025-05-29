@@ -20,10 +20,6 @@ export const routes: Routes = [
     loadComponent: () => import('./registar/registar.page').then((m) => m.RegistarPage),
   },
   {
-    path: 'notificacoes',
-    loadComponent: () => import('./notificacoes/notificacoes.page').then((m) => m.NotificacoesPage),
-  },
-  {
     path: 'working-on-it',
     loadComponent: () => import('./funcionalidade_adicionais/working-on-it.page').then((m) => m.WorkingOnItPage),
   },
@@ -54,7 +50,16 @@ export const routes: Routes = [
       },
       {
         path: 'cart',
-        loadComponent: () => import('./tabs/cart/cart.page').then((m) => m.CartPage),
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./tabs/cart/cart.page').then((m) => m.CartPage),
+          },
+          {
+            path: 'etapa1',
+            loadComponent: () => import('./tabs/cart/etapa1/etapa1.page').then(m => m.Etapa1Page)
+          }
+        ]
       },
       {
         path: 'profile',
@@ -63,6 +68,10 @@ export const routes: Routes = [
             path: '',
             loadComponent: () => import('./tabs/profile/profile.page').then((m) => m.ProfilePage),
           },
+          {
+            path: 'notificacoes',
+            loadComponent: () => import('./notificacoes/notificacoes.page').then(m => m.NotificacoesPage)
+          }
         ]
       },
       {
@@ -75,5 +84,5 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: 'splash',
-  }
+  },
 ];

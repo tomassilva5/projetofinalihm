@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonButton } from '@ionic/angular/standalone';
 import { CartService } from 'src/app/core/services/cart.service';
 import { CartItem } from 'src/app/core/interfaces/cart-item.interface';
 
@@ -9,7 +10,7 @@ import { CartItem } from 'src/app/core/interfaces/cart-item.interface';
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, CommonModule]
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonButton, CommonModule]
 })
 export class CartPage implements OnInit {
   produtos: CartItem[] = [];
@@ -17,7 +18,10 @@ export class CartPage implements OnInit {
   envio: number = 0;
   total: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.cartService.cart$.subscribe(cart => {
@@ -27,9 +31,17 @@ export class CartPage implements OnInit {
   }
 
   atualizarTotais() {
+    // Total = apenas o valor do primeiro produto (telemóvel)
+    if (this.produtos.length > 0) {
+      const telemovel = this.produtos[0]; // Primeiro produto (telemóvel)
+      this.total = telemovel.price * telemovel.quantity;
+    } else {
+      this.total = 0;
+    }
+    
+    // Subtotal e envio podem ficar como estavam (se precisares para outros cálculos)
     this.subtotal = this.produtos.reduce((acc, p) => acc + p.price * p.quantity, 0);
-    this.envio = this.subtotal > 0 ? 2.5 : 0; // Exemplo de lógica de envio
-    this.total = this.subtotal + this.envio;
+    this.envio = 0; // Remove custos de envio
   }
 
   increaseQuantity(index: number) {
@@ -51,4 +63,8 @@ export class CartPage implements OnInit {
     this.cartService.removeFromCart(produtoRemovido);
     this.atualizarTotais();
   }
-} 
+
+  comprar() {
+    this.router.navigate(['/tabs/cart/etapa1']);
+  }
+}

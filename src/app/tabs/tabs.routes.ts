@@ -22,6 +22,10 @@ export const routes: Routes = [
           {
             path: 'product/:id',
             loadComponent: () => import('./menu/product-details/product-details.page').then(m => m.ProductDetailsPage)
+          },
+          {
+            path: 'devolucoes',
+            loadComponent: () => import('./menu/devolucoes/devolucoes.page').then(m => m.DevolucoesPage)
           }
         ]
       },
@@ -46,5 +50,9 @@ export const routes: Routes = [
     path: '',
     redirectTo: '/tabs/home',
     pathMatch: 'full',
+  },  {
+    path: 'etapa1',
+    loadComponent: () => import('./cart/etapa1/etapa1.page').then( m => m.Etapa1Page)
   },
-]; 
+
+];

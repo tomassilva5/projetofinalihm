@@ -28,19 +28,11 @@
     </div>
   </div>
 
-  <div class="cart-summary">
-    <div class="cart-row">
-      <span>Subtotal</span>
-      <span>€{{ subtotal | number:'1.2-2' }}</span>
-    </div>
-    <div class="cart-row">
-      <span>Custos de envio estimados</span>
-      <span>€{{ envio | number:'1.2-2' }}</span>
-    </div>
-    <hr class="cart-divider" />
-    <div class="cart-row cart-total">
-      <span>Total</span>
-      <span class="cart-total-value">€{{ total | number:'1.2-2' }}</span>
-    </div>
+<!-- Barra fixa no fundo, igual à segunda imagem -->
+<div class="cart-footer-bar">
+  <div class="cart-footer-total">
+    <span>Total ({{ produtos.length }})</span>
+    <span class="cart-footer-total-value">€{{ total | number:'1.2-2' }}</span>
   </div>
-</ion-content> 
+  <ion-button expand="block" class="cart-footer-btn" (click)="comprar()">Comprar</ion-button>
+</div>
