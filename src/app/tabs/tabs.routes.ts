@@ -27,7 +27,7 @@ export const routes: Routes = [
             path: 'devolucoes',
             loadComponent: () => import('./menu/devolucoes/devolucoes.page').then(m => m.DevolucoesPage)
           }
-          
+
         ]
       },
       {
@@ -63,10 +63,6 @@ export const routes: Routes = [
   {
     path: 'etapa3',
     loadComponent: () => import('./cart/etapa3/etapa3.page').then( m => m.Etapa3Page)
-  },
-  {
-    path: 'etapa3-continuacao',
-    loadComponent: () => import('./cart/etapa3-continuacao/etapa3-continuacao.page').then( m => m.Etapa3ContinuacaoPage)
   },
   {
     path: 'etapa4',
