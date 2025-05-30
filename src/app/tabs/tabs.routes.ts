@@ -54,5 +54,21 @@ export const routes: Routes = [
     path: 'etapa1',
     loadComponent: () => import('./cart/etapa1/etapa1.page').then( m => m.Etapa1Page)
   },
+  {
+    path: 'etapa2',
+    loadComponent: () => import('./cart/etapa2/etapa2.page').then( m => m.Etapa2Page)
+  },
+  {
+    path: 'etapa3',
+    loadComponent: () => import('./cart/etapa3/etapa3.page').then( m => m.Etapa3Page)
+  },
+  {
+    path: 'etapa3-continuacao',
+    loadComponent: () => import('./cart/etapa3-continuacao/etapa3-continuacao.page').then( m => m.Etapa3ContinuacaoPage)
+  },
+  {
+    path: 'etapa4',
+    loadComponent: () => import('./cart/etapa4/etapa4.page').then( m => m.Etapa4Page)
+  },
 
 ];

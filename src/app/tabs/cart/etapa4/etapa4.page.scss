@@ -1,4 +1,4 @@
-.etapa1-header {
+.etapa4-header {
   --background: #357a50;
   --color: #fff;
   min-height: 70px;
@@ -7,19 +7,19 @@
   position: relative;
 }
 
-.etapa1-back-icon {
+.etapa4-back-icon {
   color: #fff;
   font-size: 1.7rem;
 }
 
-.etapa1-logo {
+.etapa4-logo {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.etapa1-logo-circle {
+.etapa4-logo-circle {
   width: 45px;
   height: 45px;
   background: #fff;
@@ -32,21 +32,21 @@
   font-weight: bold;
 }
 
-.etapa1-content {
+.etapa4-content {
   --ion-background-color: #fff;
   padding: 0;
   min-height: 100vh;
 }
 
-.etapa1-steps {
+.etapa4-steps {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 25px 0 15px 0;
-  gap: 60px;
+  gap: 50px;
 }
 
-.etapa1-step {
+.etapa4-step {
   width: 45px;
   height: 45px;
   border: 2px solid #ccc;
@@ -61,22 +61,20 @@
   transition: all 0.3s ease;
 }
 
-/* Círculo ativo: apenas borda e número verdes, interior branco */
-.etapa1-step.active {
+.etapa4-step.active {
   background: #fff;
   color: #357a50;
   border-color: #357a50;
 }
 
-/* Linha verde de borda a borda */
-.etapa1-divider {
+.etapa4-divider {
   border-bottom: 2px solid #357a50;
-  margin: 0; /* Remove margens laterais */
-  width: 100%; /* Ocupa toda a largura */
+  margin: 0;
+  width: 100%;
   margin-bottom: 25px;
 }
 
-.etapa1-title {
+.etapa4-title {
   color: #333;
   font-size: 1.6rem;
   font-weight: 600;
@@ -84,56 +82,122 @@
   text-align: left;
 }
 
-.etapa1-delivery-options {
+.etapa4-product-card {
+  background: #fff;
+  border-radius: 12px;
+  margin: 0 20px 25px 20px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.etapa4-product-info {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 15px;
+}
+
+.etapa4-product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.etapa4-product-details {
+  flex: 1;
+}
+
+.etapa4-product-name {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.etapa4-product-price {
+  color: #357a50;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.etapa4-summary {
   margin: 0 20px;
   padding-bottom: 120px;
 }
 
-.etapa1-delivery-option {
+.etapa4-summary-item {
   background: #f5f5f5;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 20px 22px;
+  border-radius: 8px 8px 0 0;
+  padding: 18px 20px;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  justify-content: space-between;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.etapa1-delivery-option.selected {
-  background: #357a50;
-  border-color: #357a50;
-  color: #fff;
+.etapa4-summary-item:hover {
+  background: #e8e8e8;
 }
 
-.etapa1-delivery-icon {
-  font-size: 1.8rem;
+.etapa4-summary-label {
   color: #666;
-}
-
-.etapa1-delivery-option.selected .etapa1-delivery-icon {
-  color: #fff;
-}
-
-.etapa1-delivery-text {
-  color: #333;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-.etapa1-delivery-option.selected .etapa1-delivery-text {
-  color: #fff;
+.etapa4-summary-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.etapa1-footer-bar {
+.etapa4-summary-arrow {
+  color: #999;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+/* Estilos para os detalhes expansíveis */
+.etapa4-details {
+  background: #f9f9f9;
+  border-radius: 0 0 8px 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.etapa4-details.expanded {
+  max-height: 200px;
+}
+
+.etapa4-details-content {
+  padding: 15px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.etapa4-details-content p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.etapa4-details-content strong {
+  color: #333;
+}
+
+.etapa4-footer-bar {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0px; 
+  bottom: 0px;
   background: #fff;
   border-top: 2px solid #357a50;
   display: flex;
@@ -143,7 +207,7 @@
   height: 64px;
 }
 
-.etapa1-footer-total {
+.etapa4-footer-total {
   flex: 1;
   display: flex;
   align-items: center;
@@ -154,7 +218,7 @@
   background: #f8f8f8;
 }
 
-.etapa1-footer-btn {
+.etapa4-footer-btn {
   --background: #357a50;
   --color: #fff;
   font-size: 1.18rem;
