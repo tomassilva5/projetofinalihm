@@ -75,6 +75,18 @@ export const routes: Routes = [
           {
             path: 'etapa1',
             loadComponent: () => import('./tabs/cart/etapa1/etapa1.page').then(m => m.Etapa1Page)
+          },
+          {
+            path: 'etapa2',
+            loadComponent: () => import('./tabs/cart/etapa2/etapa2.page').then(m => m.Etapa2Page)
+          },
+          {
+            path: 'etapa3',
+            loadComponent: () => import('./tabs/cart/etapa3/etapa3.page').then(m => m.Etapa3Page)
+          },
+          {
+            path: 'etapa4',
+            loadComponent: () => import('./tabs/cart/etapa4/etapa4.page').then(m => m.Etapa4Page)
           }
         ]
       },
@@ -98,8 +110,9 @@ export const routes: Routes = [
       },
     ],
   },
-  {
-    path: '**',
-    redirectTo: 'splash',
-  },
+  // ❌ REMOVE ESTA LINHA TEMPORARIAMENTE
+  // {
+  //   path: '**',
+  //   redirectTo: 'splash',
+  // },
 ];

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar class="etapa2-header">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline" class="etapa2-back-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="etapa2-logo">
+      <div class="etapa2-logo-circle">NT</div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="etapa2-content">
+  <!-- 3 Passos com o 2 ativo (verde) -->
+  <div class="etapa2-steps">
+    <div class="etapa2-step">1</div>
+    <div class="etapa2-step active">2</div>
+    <div class="etapa2-step">3</div>
+  </div>
+
+  <!-- Linha verde de borda a borda -->
+  <div class="etapa2-divider"></div>
+
+  <!-- Título -->
+  <h2 class="etapa2-title">Morada</h2>
+
+  <!-- Formulário de morada -->
+  <div class="etapa2-form">
+    <div class="etapa2-input-group">
+      <ion-input 
+        placeholder="Rua" 
+        [(ngModel)]="morada.rua"
+        class="etapa2-input">
+      </ion-input>
+      <ion-icon name="search-outline" class="etapa2-input-icon"></ion-icon>
+    </div>
+
+    <div class="etapa2-input-group">
+      <ion-input 
+        placeholder="Código Postal" 
+        [(ngModel)]="morada.codigoPostal"
+        class="etapa2-input">
+      </ion-input>
+      <ion-icon name="search-outline" class="etapa2-input-icon"></ion-icon>
+    </div>
+
+    <div class="etapa2-input-group">
+      <ion-input 
+        placeholder="País" 
+        [(ngModel)]="morada.pais"
+        class="etapa2-input">
+      </ion-input>
+      <ion-icon name="search-outline" class="etapa2-input-icon"></ion-icon>
+    </div>
+  </div>
+</ion-content>
+
+<!-- Barra fixa com preço real do telemóvel -->
+<div class="etapa2-footer-bar">
+  <div class="etapa2-footer-total">
+    €{{ total | number:'1.2-2' }}
+  </div>
+  <ion-button expand="block" class="etapa2-footer-btn" (click)="continuar()">
+    Continuar
+  </ion-button>
+</div>
