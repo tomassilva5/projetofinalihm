@@ -50,6 +50,8 @@ export class MenuPage implements OnInit {
   abrirCategoria(item: string) {
     if (item === 'Telemóveis') {
       this.router.navigate(['/tabs/menu/telemoveis']);
+    } else if (item === 'Devoluções') {
+      this.router.navigate(['/tabs/menu/devolucoes']);
     } else {
       this.router.navigate(['/working-on-it']);
     }

@@ -46,6 +46,23 @@ export const routes: Routes = [
             path: 'product/:id',
             loadComponent: () => import('./tabs/menu/product-details/product-details.page').then(m => m.ProductDetailsPage)
           },
+          {
+            path: 'devolucoes',
+            children: [
+              {
+                path: '',
+                loadComponent: () => import('./tabs/menu/devolucoes/devolucoes.page').then(m => m.DevolucoesPage)
+              },
+              {
+                path: 'sucesso',
+                loadComponent: () => import('./tabs/menu/devolucoes/sucesso/sucesso.page').then(m => m.SucessoPage)
+              },
+              {
+                path: ':id',
+                loadComponent: () => import('./tabs/menu/devolucoes/devolucao-detalhe/devolucao-detalhe.page').then(m => m.DevolucaoDetalhePage)
+              }
+            ]
+          },
         ]
       },
       {

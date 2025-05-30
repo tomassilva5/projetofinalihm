@@ -1,0 +1,84 @@
+.sucesso-header {
+  display: flex;
+  align-items: center;
+  background: #357a50;
+  color: #fff;
+  padding: 18px 16px 12px 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+.back-icon {
+  font-size: 2rem;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.sucesso-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.sucesso-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48px;
+  gap: 18px;
+  min-height: 60vh;
+}
+
+.sucesso-check {
+  font-size: 5.2rem;
+  color: #357a50;
+  margin-bottom: 12px;
+}
+
+.sucesso-msg-main {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+
+.sucesso-msg-sub {
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.sucesso-btn {
+  width: 100%;
+  max-width: 320px;
+  background: #357a50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 70px;
+  margin: 0 auto;
+  z-index: 20;
+  box-shadow: 0 2px 8px #357a5011;
+}
+.sucesso-btn:hover {
+  background: #285c3c;
+}
+
+@media (min-width: 500px) {
+  .sucesso-btn {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 420px;
+  }
+} 

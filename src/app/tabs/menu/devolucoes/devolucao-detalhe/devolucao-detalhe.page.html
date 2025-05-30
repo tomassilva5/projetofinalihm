@@ -1,0 +1,45 @@
+<ion-content class="devolucao-detalhe-content">
+  <div class="devolucao-header">
+    <ion-icon name="arrow-back-outline" class="back-icon" (click)="voltar()"></ion-icon>
+    <span class="devolucao-title">Devoluções</span>
+  </div>
+  <div *ngIf="product" class="produto-nome-topo">{{ product.name }}</div>
+  <form [formGroup]="devolucaoForm" (ngSubmit)="enviarPedido()" class="devolucao-form">
+    <div class="erro-geral" *ngIf="erroGeral">{{ erroGeral }}</div>
+    <div class="motivo-section">
+      <div class="motivo-dropdown-wrapper">
+        <button type="button" class="motivo-dropdown-btn" (click)="mostrarDropdown = !mostrarDropdown">
+          <span *ngIf="!motivoSelecionado">Motivo da Devolução</span>
+          <span *ngIf="motivoSelecionado">{{ motivoSelecionado }}</span>
+          <ion-icon name="chevron-down-outline" class="dropdown-icon"></ion-icon>
+        </button>
+        <div class="motivo-dropdown-list" *ngIf="mostrarDropdown">
+          <div class="motivo-dropdown-item" *ngFor="let motivo of motivosPredefinidos" (click)="motivoSelecionado = motivo; mostrarDropdown = false; motivoOutro = ''">
+            {{ motivo }}
+          </div>
+        </div>
+      </div>
+      <input *ngIf="motivoSelecionado === 'Outros'" type="text" class="motivo-descricao-input" placeholder="Descreva o motivo" [(ngModel)]="motivoOutro" name="motivoOutro" required />
+    </div>
+    <label class="devolucao-label">
+      <div class="devolucao-card">
+        <ion-icon name="calendar-outline" class="devolucao-icon"></ion-icon>
+        <span>Data da Compra</span>
+        <input formControlName="dataCompra" type="date" class="devolucao-date" (blur)="validarDataCompra()" />
+        <div class="erro-data" *ngIf="dataErro">{{ dataErro }}</div>
+      </div>
+    </label>
+    <label class="devolucao-label">
+      <div class="devolucao-card">
+        <ion-icon name="image-outline" class="devolucao-icon"></ion-icon>
+        <span>Foto do Produto</span>
+        <button type="button" class="foto-btn" (click)="abrirFileInput()">Adicionar Foto</button>
+        <input #fileInput type="file" accept="image/*" (change)="onFotoChange($event)" class="devolucao-file" style="display:none;" />
+        <img *ngIf="fotoPreview" [src]="fotoPreview" class="foto-preview" />
+      </div>
+    </label>
+    <button type="submit" class="devolucao-btn" [ngClass]="{
+      'ativo': (motivoSelecionado && (motivoSelecionado !== 'Outros' || motivoOutro)) && devolucaoForm.value.dataCompra && devolucaoForm.value.foto
+    }">Enviar Pedido</button>
+  </form>
+</ion-content> 

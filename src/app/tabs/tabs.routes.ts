@@ -27,6 +27,7 @@ export const routes: Routes = [
             path: 'devolucoes',
             loadComponent: () => import('./menu/devolucoes/devolucoes.page').then(m => m.DevolucoesPage)
           }
+          
         ]
       },
       {
@@ -50,7 +51,8 @@ export const routes: Routes = [
     path: '',
     redirectTo: '/tabs/home',
     pathMatch: 'full',
-  },  {
+  },
+  {
     path: 'etapa1',
     loadComponent: () => import('./cart/etapa1/etapa1.page').then( m => m.Etapa1Page)
   },
