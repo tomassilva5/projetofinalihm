@@ -17,10 +17,12 @@ export class DevolucaoDetalhePage implements OnInit {
   devolucaoForm: FormGroup;
   productId: number | null = null;
   product: Product | null = null;
-  fotoPreview: string | ArrayBuffer | null = null;
+  fotoPreview: string | null = null;
+  fotoFaturaPreview: string | null = null;
   dataErro: string = '';
   erroGeral: string = '';
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('fileInputFatura') fileInputFatura!: ElementRef<HTMLInputElement>;
   @ViewChild('inputData') inputData!: ElementRef<HTMLInputElement>;
   motivosPredefinidos: string[] = [
     'Produto com defeito',
@@ -43,7 +45,8 @@ export class DevolucaoDetalhePage implements OnInit {
     this.devolucaoForm = this.fb.group({
       motivo: [''],
       dataCompra: [''],
-      foto: [null]
+      foto: [null],
+      fotoFatura: [null]
     });
   }
 
@@ -60,14 +63,32 @@ export class DevolucaoDetalhePage implements OnInit {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = e => this.fotoPreview = reader.result;
+      reader.onload = (e: any) => {
+        this.fotoPreview = e.target.result;
+        this.devolucaoForm.patchValue({ foto: file });
+      };
       reader.readAsDataURL(file);
-      this.devolucaoForm.patchValue({ foto: file });
+    }
+  }
+
+  onFotoFaturaChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.fotoFaturaPreview = e.target.result;
+        this.devolucaoForm.patchValue({ fotoFatura: file });
+      };
+      reader.readAsDataURL(file);
     }
   }
 
   abrirFileInput() {
     this.fileInput.nativeElement.click();
+  }
+
+  abrirFileInputFatura() {
+    this.fileInputFatura.nativeElement.click();
   }
 
   abrirCalendario() {

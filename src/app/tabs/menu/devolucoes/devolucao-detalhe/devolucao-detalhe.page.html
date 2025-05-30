@@ -38,6 +38,15 @@
         <img *ngIf="fotoPreview" [src]="fotoPreview" class="foto-preview" />
       </div>
     </label>
+    <label class="devolucao-label">
+      <div class="devolucao-card">
+        <ion-icon name="receipt-outline" class="devolucao-icon"></ion-icon>
+        <span>Foto da Fatura</span>
+        <button type="button" class="foto-btn" (click)="abrirFileInputFatura()">Adicionar Foto</button>
+        <input #fileInputFatura type="file" accept="image/*" (change)="onFotoFaturaChange($event)" class="devolucao-file" style="display:none;" />
+        <img *ngIf="fotoFaturaPreview" [src]="fotoFaturaPreview" class="foto-preview" />
+      </div>
+    </label>
     <button type="submit" class="devolucao-btn" [ngClass]="{
       'ativo': (motivoSelecionado && (motivoSelecionado !== 'Outros' || motivoOutro)) && devolucaoForm.value.dataCompra && devolucaoForm.value.foto
     }">Enviar Pedido</button>
