@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { TabsPage } from './tabs/tabs.page';
+import { TabsPage } from './tabs/tabs.page'; // Confirma que o caminho para TabsPage está correto
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'splash',
+    redirectTo: 'splash', // Rota inicial
     pathMatch: 'full',
   },
   {
@@ -25,10 +25,11 @@ export const routes: Routes = [
   },
   {
     path: 'tabs',
-    component: TabsPage,
-    children: [
+    component: TabsPage, // O componente TabsPage é carregado aqui
+    children: [         // As suas rotas filhas (tabs e páginas internas) são definidas aqui
       {
         path: 'home',
+        // O caminho para home.page deve ser relativo a app.routes.ts
         loadComponent: () => import('./tabs/home/home.page').then((m) => m.HomePage),
       },
       {
@@ -81,6 +82,10 @@ export const routes: Routes = [
             loadComponent: () => import('./tabs/cart/etapa2/etapa2.page').then(m => m.Etapa2Page)
           },
           {
+            path: 'etapa2-loja', // A rota que está a falhar
+            loadComponent: () => import('./tabs/cart/etapa2-loja/etapa2-loja.page').then(m => m.Etapa2LojaPage)
+          },
+          {
             path: 'etapa3',
             loadComponent: () => import('./tabs/cart/etapa3/etapa3.page').then(m => m.Etapa3Page)
           },
@@ -96,22 +101,31 @@ export const routes: Routes = [
       },
       {
         path: 'profile',
-        children: [
+        children: [ // Mantendo a estrutura de children para profile conforme o teu exemplo
           {
             path: '',
             loadComponent: () => import('./tabs/profile/profile.page').then((m) => m.ProfilePage),
           },
           {
             path: 'notificacoes',
+            // O caminho para notificacoes.page deve ser relativo a app.routes.ts
+            // Se notificacoes.page está em src/app/notificacoes/
             loadComponent: () => import('./notificacoes/notificacoes.page').then(m => m.NotificacoesPage)
+            // Se notificacoes.page está em src/app/tabs/profile/notificacoes/
+            // loadComponent: () => import('./tabs/profile/notificacoes/notificacoes.page').then(m => m.NotificacoesPage)
           }
         ]
       },
       {
-        path: '',
-        redirectTo: '/tabs/home',
+        path: '', // Redirecionamento padrão dentro de /tabs para /tabs/home
+        redirectTo: 'home',
         pathMatch: 'full',
       },
     ],
+  },
+  { // Wildcard route para apanhar URLs não definidas e redirecionar
+    path: '**',
+    redirectTo: 'splash', // ou para uma página 404
+    pathMatch: 'full'
   }
 ];

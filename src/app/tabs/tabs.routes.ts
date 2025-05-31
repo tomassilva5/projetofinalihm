@@ -71,6 +71,10 @@ export const routes: Routes = [
     path: 'sucesso',
     loadComponent: () => import('./cart/sucesso/sucesso.page').then( m => m.SucessoPage)
   },
+  {
+    path: 'etapa2-loja',
+    loadComponent: () => import('./cart/etapa2-loja/etapa2-loja.page').then( m => m.Etapa2LojaPage)
+  },
 
 
 ];

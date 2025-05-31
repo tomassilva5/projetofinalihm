@@ -1,72 +1,76 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonButton } from '@ionic/angular/standalone';
 import { CartService } from 'src/app/core/services/cart.service';
-import { CartItem } from 'src/app/core/interfaces/cart-item.interface';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle,
+  IonButton,
+  IonIcon
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonButton, CommonModule]
+  imports: [
+    IonContent, 
+    IonHeader, 
+    IonToolbar, 
+    IonTitle,
+    IonButton,
+    IonIcon,
+    CommonModule, 
+    FormsModule
+  ]
 })
 export class CartPage implements OnInit {
-  produtos: CartItem[] = [];
-  subtotal: number = 0;
-  envio: number = 0;
+  cartItems: any[] = [];
   total: number = 0;
+  isEmpty: boolean = true;
 
   constructor(
-    private cartService: CartService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private cartService: CartService
+  ) { }
 
   ngOnInit() {
     this.cartService.cart$.subscribe(cart => {
-      this.produtos = cart;
-      this.atualizarTotais();
+      this.cartItems = cart;
+      this.isEmpty = cart.length === 0;
+      
+      if (!this.isEmpty) {
+        this.total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      } else {
+        this.total = 0;
+      }
     });
   }
 
-  atualizarTotais() {
-    // Total = apenas o valor do primeiro produto (telemóvel)
-    if (this.produtos.length > 0) {
-      const telemovel = this.produtos[0]; // Primeiro produto (telemóvel)
-      this.total = telemovel.price * telemovel.quantity;
-    } else {
-      this.total = 0;
-    }
-    
-    // Subtotal e envio podem ficar como estavam (se precisares para outros cálculos)
-    this.subtotal = this.produtos.reduce((acc, p) => acc + p.price * p.quantity, 0);
-    this.envio = 0; // Remove custos de envio
+  // Baseado no resultado [6] - método para aumentar quantidade
+  increaseQuantity(product: any) {
+    // Chama método do CartService para aumentar quantidade
+    this.cartService.increaseProduct(product);
   }
 
-  increaseQuantity(index: number) {
-    const produto = this.produtos[index];
-    this.cartService.increaseQuantity(produto.id);
+  // Baseado no resultado [6] - método para diminuir quantidade  
+  decreaseQuantity(product: any) {
+    // Chama método do CartService para diminuir quantidade
+    this.cartService.decreaseProduct(product);
   }
 
-  decreaseQuantity(index: number) {
-    const produto = this.produtos[index];
-    this.cartService.decreaseQuantity(produto.id);
-  }
-
-  adicionarProduto(produto: CartItem) {
-    this.cartService.addToCart(produto);
-  }
-
-  removerProduto(index: number) {
-    const produtoRemovido = this.produtos.splice(index, 1)[0];
-    this.cartService.removeFromCart(produtoRemovido);
-    this.atualizarTotais();
+  // Método adicional para remover produto completamente
+  removeItem(product: any) {
+    this.cartService.removeProduct(product);
   }
 
   comprar() {
-    this.router.navigate(['/tabs/cart/etapa1']);
+    if (!this.isEmpty) {
+      this.router.navigate(['/tabs/cart/etapa1']);
+    }
   }
-
-  
 }

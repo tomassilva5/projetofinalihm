@@ -29,7 +29,7 @@ import {
   ]
 })
 export class Etapa1Page implements OnInit {
-  selectedDelivery = ''; // Nenhuma opção selecionada por padrão
+  selectedDelivery = '';
   total: number = 0;
 
   constructor(
@@ -38,7 +38,6 @@ export class Etapa1Page implements OnInit {
   ) { }
 
   ngOnInit() {
-    // Busca o valor total do carrinho
     this.cartService.cart$.subscribe(cart => {
       this.total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
     });
@@ -53,18 +52,16 @@ export class Etapa1Page implements OnInit {
   }
 
   continuar() {
-    if (this.selectedDelivery === 'home') {
-      // Se escolheu "Recebe em casa", navega para etapa2 (morada)
-      console.log('Recebe em casa selecionado - navegando para etapa2');
-      this.router.navigate(['/tabs/cart/etapa2']);
-    } else if (this.selectedDelivery === 'store') {
-      // Se escolheu "Levanta na loja", pula para etapa3 (ou próxima etapa)
-      console.log('Levanta na loja selecionado - pulando morada');
-      // this.router.navigate(['/tabs/cart/etapa3']);
-      alert('Funcionalidade "Levanta na loja" em desenvolvimento');
+    if (this.selectedDelivery) {
+      if (this.selectedDelivery === 'home') {
+        this.router.navigate(['/tabs/cart/etapa2']);
+      } else if (this.selectedDelivery === 'store') {
+        this.router.navigate(['/tabs/cart/etapa2-loja']).catch(() => {
+          this.router.navigate(['/working-on-it']);
+        });
+      }
     } else {
-      // Nenhuma opção selecionada
-      alert('Selecione uma opção de entrega');
+      alert('Selecione um local de entrega');
     }
   }
 }

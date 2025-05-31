@@ -10,7 +10,7 @@ import {
   IonButtons, 
   IonButton, 
   IonIcon,
-  IonInput
+  IonInput // Certifica-te que IonInput está nos imports do componente
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -25,7 +25,7 @@ import {
     IonButtons, 
     IonButton, 
     IonIcon,
-    IonInput,
+    IonInput, // Adicionado aqui
     CommonModule, 
     FormsModule
   ]
@@ -37,6 +37,7 @@ export class Etapa2Page implements OnInit {
     pais: ''
   };
   total: number = 0;
+  isFormValid: boolean = false; // Controla o estado do botão
 
   constructor(
     private router: Router,
@@ -45,42 +46,33 @@ export class Etapa2Page implements OnInit {
 
   ngOnInit() {
     this.cartService.cart$.subscribe(cart => {
-      if (cart.length > 0) {
-        const telemovel = cart[0];
-        this.total = telemovel.price * telemovel.quantity;
-      } else {
-        this.total = 0;
-      }
+      this.total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
     });
-
-    // Limpa dados da compra anterior ao entrar na página
-    this.clearPreviousData();
-  }
-
-  clearPreviousData() {
-    // Limpa formulário da morada
-    this.morada = {
-      rua: '',
-      codigoPostal: '',
-      pais: ''
-    };
-    
-    // Limpa dados salvos de compras anteriores
-    localStorage.removeItem('morada');
-    localStorage.removeItem('metodoPagamento');
-    localStorage.removeItem('dadosCartao');
-    localStorage.removeItem('tipoEntrega');
+    // Verifica validade inicial (caso dados venham preenchidos)
+    this.checkFormValidity();
   }
 
   goBack() {
     this.router.navigate(['/tabs/cart/etapa1']);
   }
 
+  // Baseado no resultado [2] - validação em tempo real
+  checkFormValidity() {
+    // Verifica se todos os campos da morada estão preenchidos
+    this.isFormValid = 
+      this.morada.rua.trim() !== '' &&
+      this.morada.codigoPostal.trim() !== '' &&
+      this.morada.pais.trim() !== '';
+  }
+
   continuar() {
-    if (this.morada.rua && this.morada.codigoPostal && this.morada.pais) {
+    // A verificação já é feita pelo [disabled] do botão,
+    // mas uma verificação extra aqui é boa prática.
+    if (this.isFormValid) {
       localStorage.setItem('morada', JSON.stringify(this.morada));
       this.router.navigate(['/tabs/cart/etapa3']);
     } else {
+      // Este alert só apareceria se o botão fosse clicável indevidamente
       alert('Preencha todos os campos da morada');
     }
   }

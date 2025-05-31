@@ -30,29 +30,39 @@
   <div class="etapa2-form">
     <div class="etapa2-input-group">
       <ion-input 
-        placeholder="Rua" 
+        label="Rua"
+        labelPlacement="floating"
+        placeholder="Ex: Rua das Flores, 123" 
         [(ngModel)]="morada.rua"
-        class="etapa2-input">
+        (ionInput)="checkFormValidity()"
+        class="etapa2-input"
+        required> <!-- Adiciona required -->
       </ion-input>
-      <ion-icon name="search-outline" class="etapa2-input-icon"></ion-icon>
+      <!-- Removido ícone de pesquisa, não faz sentido aqui -->
     </div>
 
     <div class="etapa2-input-group">
       <ion-input 
-        placeholder="Código Postal" 
+        label="Código Postal"
+        labelPlacement="floating"
+        placeholder="Ex: 1000-001" 
         [(ngModel)]="morada.codigoPostal"
-        class="etapa2-input">
+        (ionInput)="checkFormValidity()"
+        class="etapa2-input"
+        required> <!-- Adiciona required -->
       </ion-input>
-      <ion-icon name="search-outline" class="etapa2-input-icon"></ion-icon>
     </div>
 
     <div class="etapa2-input-group">
       <ion-input 
-        placeholder="País" 
+        label="País"
+        labelPlacement="floating"
+        placeholder="Ex: Portugal" 
         [(ngModel)]="morada.pais"
-        class="etapa2-input">
+        (ionInput)="checkFormValidity()"
+        class="etapa2-input"
+        required> <!-- Adiciona required -->
       </ion-input>
-      <ion-icon name="search-outline" class="etapa2-input-icon"></ion-icon>
     </div>
   </div>
 </ion-content>
@@ -62,7 +72,11 @@
   <div class="etapa2-footer-total">
     €{{ total | number:'1.2-2' }}
   </div>
-  <ion-button expand="block" class="etapa2-footer-btn" (click)="continuar()">
+  <ion-button 
+    expand="block" 
+    class="etapa2-footer-btn" 
+    (click)="continuar()"
+    [disabled]="!isFormValid"> <!-- Botão desabilitado se formulário inválido -->
     Continuar
   </ion-button>
 </div>
