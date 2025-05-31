@@ -101,6 +101,7 @@
   height: 80px;
   object-fit: cover;
   border-radius: 8px;
+  background: #f0f0f0;
 }
 
 .etapa4-product-details {
@@ -138,7 +139,13 @@
   transition: all 0.3s ease;
 }
 
-.etapa4-summary-item:hover {
+/* Aba expandida fica verde */
+.etapa4-summary-item.expanded {
+  background: #357a50;
+  color: #fff;
+}
+
+.etapa4-summary-item:hover:not(.expanded) {
   background: #e8e8e8;
 }
 
@@ -146,6 +153,10 @@
   color: #666;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.etapa4-summary-item.expanded .etapa4-summary-label {
+  color: #fff;
 }
 
 .etapa4-summary-value {
@@ -157,13 +168,20 @@
   font-weight: 500;
 }
 
+.etapa4-summary-item.expanded .etapa4-summary-value {
+  color: #fff;
+}
+
 .etapa4-summary-arrow {
   color: #999;
   font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
 
-/* Estilos para os detalhes expansíveis */
+.etapa4-summary-item.expanded .etapa4-summary-arrow {
+  color: #fff;
+}
+
 .etapa4-details {
   background: #f9f9f9;
   border-radius: 0 0 8px 8px;

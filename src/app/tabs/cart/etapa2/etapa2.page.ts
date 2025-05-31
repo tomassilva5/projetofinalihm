@@ -44,15 +44,32 @@ export class Etapa2Page implements OnInit {
   ) { }
 
   ngOnInit() {
-    // Busca o valor total do carrinho (só o telemóvel)
     this.cartService.cart$.subscribe(cart => {
       if (cart.length > 0) {
-        const telemovel = cart[0]; // Primeiro produto (telemóvel)
+        const telemovel = cart[0];
         this.total = telemovel.price * telemovel.quantity;
       } else {
         this.total = 0;
       }
     });
+
+    // Limpa dados da compra anterior ao entrar na página
+    this.clearPreviousData();
+  }
+
+  clearPreviousData() {
+    // Limpa formulário da morada
+    this.morada = {
+      rua: '',
+      codigoPostal: '',
+      pais: ''
+    };
+    
+    // Limpa dados salvos de compras anteriores
+    localStorage.removeItem('morada');
+    localStorage.removeItem('metodoPagamento');
+    localStorage.removeItem('dadosCartao');
+    localStorage.removeItem('tipoEntrega');
   }
 
   goBack() {
@@ -61,9 +78,7 @@ export class Etapa2Page implements OnInit {
 
   continuar() {
     if (this.morada.rua && this.morada.codigoPostal && this.morada.pais) {
-      console.log('Morada preenchida:', this.morada);
-      console.log('Total:', this.total);
-      // Navegar para etapa3 (Método de Pagamento)
+      localStorage.setItem('morada', JSON.stringify(this.morada));
       this.router.navigate(['/tabs/cart/etapa3']);
     } else {
       alert('Preencha todos os campos da morada');

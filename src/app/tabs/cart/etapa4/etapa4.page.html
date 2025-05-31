@@ -26,12 +26,16 @@
   <!-- Título -->
   <h2 class="etapa4-title">Confirmação</h2>
 
-  <!-- Card do produto com preço correto -->
+  <!-- Card do produto com imagem -->
   <div class="etapa4-product-card">
     <div class="etapa4-product-info">
-      <img src="assets/images/nokia-3110.png" alt="Nokia 3110" class="etapa4-product-image" />
+      <img 
+        [src]="produto.image || 'assets/images/nokia-3110.png'" 
+        [alt]="produto.name"
+        class="etapa4-product-image"
+        (error)="produto.image = 'assets/images/placeholder.png'" />
       <div class="etapa4-product-details">
-        <h3 class="etapa4-product-name">Nokia 3110</h3>
+        <h3 class="etapa4-product-name">{{ produto.name }}</h3>
         <p class="etapa4-product-price">€{{ total | number:'1.2-2' }}</p>
       </div>
     </div>
@@ -40,7 +44,7 @@
   <!-- Resumo expansível -->
   <div class="etapa4-summary">
     <!-- Local da Entrega -->
-    <div class="etapa4-summary-item" (click)="toggleDelivery()">
+    <div class="etapa4-summary-item" [class.expanded]="showDeliveryDetails" (click)="toggleDelivery()">
       <span class="etapa4-summary-label">Local da Entrega</span>
       <div class="etapa4-summary-value">
         <span>{{ localEntrega }}</span>
@@ -51,7 +55,7 @@
       </div>
     </div>
     
-    <!-- Detalhes do Local da Entrega (expansível) -->
+    <!-- Detalhes do Local da Entrega -->
     <div class="etapa4-details" [class.expanded]="showDeliveryDetails">
       <div class="etapa4-details-content">
         <p><strong>Morada:</strong></p>
@@ -60,7 +64,7 @@
     </div>
 
     <!-- Método de Pagamento -->
-    <div class="etapa4-summary-item" (click)="togglePayment()">
+    <div class="etapa4-summary-item" [class.expanded]="showPaymentDetails" (click)="togglePayment()">
       <span class="etapa4-summary-label">Método de Pagamento</span>
       <div class="etapa4-summary-value">
         <span>{{ metodoPagamento }}</span>
@@ -71,12 +75,12 @@
       </div>
     </div>
 
-    <!-- Detalhes do Método de Pagamento (expansível) -->
+    <!-- Detalhes do Método de Pagamento -->
     <div class="etapa4-details" [class.expanded]="showPaymentDetails">
       <div class="etapa4-details-content">
         <p><strong>Dados do Cartão:</strong></p>
         <p>Titular: {{ cartao.nomeTitular }}<br>
-        Cartão: **** **** **** {{ cartao.numeroCartao.slice(-4) }}<br>
+        Cartão: **** **** **** {{ cartao.numeroCartao?.slice(-4) }}<br>
         Validade: {{ cartao.validade }}</p>
       </div>
     </div>

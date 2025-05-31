@@ -67,4 +67,6 @@ export class CartPage implements OnInit {
   comprar() {
     this.router.navigate(['/tabs/cart/etapa1']);
   }
+
+  
 }

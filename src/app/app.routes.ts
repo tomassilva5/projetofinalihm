@@ -87,6 +87,10 @@ export const routes: Routes = [
           {
             path: 'etapa4',
             loadComponent: () => import('./tabs/cart/etapa4/etapa4.page').then(m => m.Etapa4Page)
+          },
+          {
+            path: 'sucesso',
+            loadComponent: () => import('./tabs/cart/sucesso/sucesso.page').then(m => m.SucessoPage)
           }
         ]
       },
@@ -109,10 +113,5 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
     ],
-  },
-  // ❌ REMOVE ESTA LINHA TEMPORARIAMENTE
-  // {
-  //   path: '**',
-  //   redirectTo: 'splash',
-  // },
+  }
 ];

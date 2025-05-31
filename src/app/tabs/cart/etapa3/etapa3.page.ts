@@ -56,6 +56,20 @@ export class Etapa3Page implements OnInit {
         this.total = 0;
       }
     });
+
+    // Limpa dados do cartão ao entrar na página
+    this.clearCardData();
+  }
+
+  clearCardData() {
+    this.selectedPayment = '';
+    this.showCardForm = false;
+    this.cartao = {
+      nomeTitular: '',
+      numeroCartao: '',
+      validade: '',
+      cvv: ''
+    };
   }
 
   goBack() {
@@ -74,8 +88,11 @@ export class Etapa3Page implements OnInit {
   continuar() {
   if (this.showCardForm) {
     if (this.cartao.nomeTitular && this.cartao.numeroCartao && this.cartao.validade && this.cartao.cvv) {
-      // Navegação direta para evitar problemas de routing
-      window.location.href = '/tabs/cart/etapa4';
+      localStorage.setItem('metodoPagamento', 'cartao');
+      localStorage.setItem('dadosCartao', JSON.stringify(this.cartao));
+      
+      // Navegação para etapa4
+      this.router.navigate(['/tabs/cart/etapa4']);
     } else {
       alert('Preencha todos os campos do cartão');
     }
@@ -83,7 +100,8 @@ export class Etapa3Page implements OnInit {
     if (this.selectedPayment === 'cartao') {
       this.showCardForm = true;
     } else if (this.selectedPayment) {
-      window.location.href = '/tabs/cart/etapa4';
+      localStorage.setItem('metodoPagamento', this.selectedPayment);
+      this.router.navigate(['/tabs/cart/etapa4']);
     } else {
       alert('Selecione um método de pagamento');
     }
