@@ -1,7 +1,7 @@
 <ion-content class="profile-content">
   <!-- Header personalizado -->
   <div class="profile-header">
-    <div class="profile-avatar">US</div>
+    <div class="profile-avatar">{{ (userName && userName.length > 1) ? userName.substring(0, 2).toUpperCase() : 'US' }}</div>
     <div class="profile-greeting">
       <div class="profile-hello">Olá, {{ userName }}!</div>
     </div>
@@ -12,9 +12,10 @@
   <div class="profile-list">
     <div class="profile-list-item"
          *ngFor="let item of profileOptions"
-         (click)="handleOptionClick(item)">
+         (click)="handleOptionClick(item)"
+         [ngClass]="{'logout-option-text': item === 'Terminar Sessão'}"> <!-- ✅ Aplica classe apenas ao texto -->
       <span>{{item}}</span>
-      <ion-icon name="chevron-forward-outline" class="profile-chevron"></ion-icon>
+      <ion-icon name="chevron-forward-outline" class="profile-chevron"></ion-icon> <!-- Seta continua normal -->
     </div>
   </div>
 </ion-content>

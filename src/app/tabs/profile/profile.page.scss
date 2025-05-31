@@ -1,17 +1,15 @@
 .profile-content {
   --ion-background-color: #fff;
-  padding-bottom: 70px;
+  padding-bottom: 70px; // Espaço para a tab-bar
 }
 
-/* Header igual ao menu: verde, sem curvas, preenche o topo */
 .profile-header {
   display: flex;
   align-items: center;
-  background: #357a50;
+  background: #357a50; // Verde principal
   padding: 16px 16px 12px 16px;
   min-height: 70px;
   box-sizing: border-box;
-  border-radius: 0;
   width: 100%;
   margin: 0;
 }
@@ -46,13 +44,13 @@
   color: #fff;
   font-size: 1.6rem;
   margin-left: 8px;
+  cursor: pointer;
 }
 
-/* Lista de opções igual ao menu */
 .profile-list {
   width: 100%;
   background: #fff;
-  margin-top: 2px;
+  margin-top: 2px; // Pequena separação do header se ele não for fixo
 }
 
 .profile-list-item {
@@ -65,24 +63,39 @@
   color: #222;
   cursor: pointer;
   transition: background 0.12s;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    background: #f3f6f3;
+  }
+
+  span {
+    flex-grow: 1;
+  }
+
+  // Estilo para o texto da opção "Terminar Sessão"
+  &.logout-option-text {
+    span {
+      color: var(--ion-color-danger, #eb445a); // Texto vermelho
+      font-weight: 500;
+    }
+  }
 }
 
-.profile-list-item:active {
-  background: #f3f6f3;
-}
-
-/* Chevron igual ao menu */
 .profile-chevron {
-  color: #616161;
+  color: #616161; // Cor padrão da seta
   font-size: 1.55rem;
   margin-left: 8px;
   display: flex;
   align-items: center;
-  font-weight: 600;
 }
 
-/* Barra de navegação inferior igual ao menu */
-.bottom-tabs {
+/* Estilos para a tab-bar inferior (assumindo que são para ion-tab-bar) */
+/* Se já definidos globalmente, podem ser removidos daqui. */
+.bottom-tabs { // Considera aplicar diretamente a ion-tab-bar no seu próprio SCSS ou global.scss
   position: fixed;
   left: 0;
   right: 0;
@@ -96,7 +109,7 @@
   justify-content: space-around;
   align-items: center;
   z-index: 100;
-  box-shadow: 0 -2px 8px #42744c11;
+  box-shadow: 0 -2px 8px rgba(8, 50, 16, 0.067);
 }
 
 .tab-icon {
@@ -106,9 +119,9 @@
   background: transparent;
   padding: 8px;
   transition: color 0.2s;
-}
 
-.tab-icon.active {
-  color: #42744c;
-  opacity: 1;
+  &.active {
+    color: #42744c;
+    opacity: 1;
+  }
 }
