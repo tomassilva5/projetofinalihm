@@ -1,3 +1,4 @@
+/* Header */
 .etapa2-header {
   --background: #357a50;
   --color: #fff;
@@ -32,19 +33,20 @@
   font-weight: bold;
 }
 
+/* Conteúdo principal */
 .etapa2-content {
   --ion-background-color: #fff;
   padding: 0;
   min-height: 100vh;
 }
 
+/* Passos do checkout */
 .etapa2-steps {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 25px 0 15px 0;
   gap: 60px;
-  position: relative;
 }
 
 .etapa2-step {
@@ -59,25 +61,22 @@
   font-weight: 600;
   font-size: 1.3rem;
   background: #fff;
-  transition: all 0.3s ease;
-  z-index: 2;
-  position: relative;
+  transition: all 0.3s;
 }
 
 .etapa2-step.active {
-  background: #fff;
   color: #357a50;
   border-color: #357a50;
 }
 
-/* Linha verde de borda a borda */
+/* Linha divisória */
 .etapa2-divider {
   border-bottom: 2px solid #357a50;
-  margin: 0; /* Remove margens laterais para ir de borda a borda */
-  width: 100%; /* Ocupa toda a largura */
+  width: 100%;
   margin-bottom: 25px;
 }
 
+/* Título */
 .etapa2-title {
   color: #333;
   font-size: 1.6rem;
@@ -86,13 +85,13 @@
   text-align: left;
 }
 
+/* Formulário de morada */
 .etapa2-form {
   margin: 0 20px;
   padding-bottom: 120px;
 }
 
 .etapa2-input-group {
-  position: relative;
   margin-bottom: 20px;
 }
 
@@ -108,25 +107,15 @@
   font-size: 1.1rem;
 }
 
-.etapa2-input-icon {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  font-size: 1.3rem;
-  pointer-events: none;
-}
-
+/* Footer fixo */
 .etapa2-footer-bar {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0px;
+  bottom: 0;
   background: #fff;
   border-top: 2px solid #357a50;
   display: flex;
-  align-items: stretch;
   z-index: 100;
   box-shadow: 0 -2px 8px #357a5011;
   height: 64px;

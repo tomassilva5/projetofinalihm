@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content class="etapa2-content">
-  <!-- 4 Passos com o 2 ativo (verde) -->
+  <!-- Passos do checkout -->
   <div class="etapa2-steps">
     <div class="etapa2-step">1</div>
     <div class="etapa2-step active">2</div>
@@ -20,10 +20,8 @@
     <div class="etapa2-step">4</div>
   </div>
 
-  <!-- Linha verde de borda a borda -->
   <div class="etapa2-divider"></div>
 
-  <!-- Título -->
   <h2 class="etapa2-title">Morada</h2>
 
   <!-- Formulário de morada -->
@@ -36,11 +34,9 @@
         [(ngModel)]="morada.rua"
         (ionInput)="checkFormValidity()"
         class="etapa2-input"
-        required> <!-- Adiciona required -->
+        required>
       </ion-input>
-      <!-- Removido ícone de pesquisa, não faz sentido aqui -->
     </div>
-
     <div class="etapa2-input-group">
       <ion-input 
         label="Código Postal"
@@ -49,10 +45,9 @@
         [(ngModel)]="morada.codigoPostal"
         (ionInput)="checkFormValidity()"
         class="etapa2-input"
-        required> <!-- Adiciona required -->
+        required>
       </ion-input>
     </div>
-
     <div class="etapa2-input-group">
       <ion-input 
         label="País"
@@ -61,13 +56,13 @@
         [(ngModel)]="morada.pais"
         (ionInput)="checkFormValidity()"
         class="etapa2-input"
-        required> <!-- Adiciona required -->
+        required>
       </ion-input>
     </div>
   </div>
 </ion-content>
 
-<!-- Barra fixa com preço real do telemóvel -->
+<!-- Barra fixa com total e botão continuar -->
 <div class="etapa2-footer-bar">
   <div class="etapa2-footer-total">
     €{{ total | number:'1.2-2' }}
@@ -76,7 +71,7 @@
     expand="block" 
     class="etapa2-footer-btn" 
     (click)="continuar()"
-    [disabled]="!isFormValid"> <!-- Botão desabilitado se formulário inválido -->
+    [disabled]="!isFormValid">
     Continuar
   </ion-button>
 </div>

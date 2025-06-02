@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content class="etapa1-content">
-  <!-- 4 Passos - círculo 1 ativo -->
+  <!-- Passos do checkout -->
   <div class="etapa1-steps">
     <div class="etapa1-step active">1</div>
     <div class="etapa1-step">2</div>
@@ -20,27 +20,30 @@
     <div class="etapa1-step">4</div>
   </div>
 
-  <!-- Linha verde -->
   <div class="etapa1-divider"></div>
 
-  <!-- Título da etapa -->
   <h2 class="etapa1-title">Local de Entrega</h2>
 
-  <!-- Opções de entrega - nenhuma selecionada por padrão -->
+  <!-- Opções de entrega -->
   <div class="etapa1-delivery-options">
-    <div class="etapa1-delivery-option" [class.selected]="selectedDelivery === 'store'" (click)="selectDelivery('store')">
+    <div 
+      class="etapa1-delivery-option" 
+      [class.selected]="selectedDelivery === 'store'" 
+      (click)="selectDelivery('store')">
       <ion-icon name="storefront-outline" class="etapa1-delivery-icon"></ion-icon>
       <span class="etapa1-delivery-text">Levanta na loja</span>
     </div>
-    
-    <div class="etapa1-delivery-option" [class.selected]="selectedDelivery === 'home'" (click)="selectDelivery('home')">
+    <div 
+      class="etapa1-delivery-option" 
+      [class.selected]="selectedDelivery === 'home'" 
+      (click)="selectDelivery('home')">
       <ion-icon name="home-outline" class="etapa1-delivery-icon"></ion-icon>
       <span class="etapa1-delivery-text">Recebe em casa</span>
     </div>
   </div>
 </ion-content>
 
-<!-- Barra fixa com valor real do carrinho -->
+<!-- Barra fixa com total e botão continuar -->
 <div class="etapa1-footer-bar">
   <div class="etapa1-footer-total">
     €{{ total | number:'1.2-2' }}

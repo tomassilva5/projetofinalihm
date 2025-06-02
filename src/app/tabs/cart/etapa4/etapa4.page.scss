@@ -1,3 +1,4 @@
+/* Header fixo com logo central */
 .etapa4-header {
   --background: #357a50;
   --color: #fff;
@@ -6,38 +7,28 @@
   align-items: center;
   position: relative;
 }
-
-.etapa4-back-icon {
-  color: #fff;
-  font-size: 1.7rem;
-}
-
+.etapa4-back-icon { color: #fff; font-size: 1.7rem; }
 .etapa4-logo {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 50%; top: 50%;
   transform: translate(-50%, -50%);
 }
-
 .etapa4-logo-circle {
-  width: 45px;
-  height: 45px;
-  background: #fff;
-  color: #357a50;
+  width: 45px; height: 45px;
+  background: #fff; color: #357a50;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: bold;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: bold;
 }
 
+/* Conteúdo principal */
 .etapa4-content {
   --ion-background-color: #fff;
-  padding: 0;
   min-height: 100vh;
+  padding: 0;
 }
 
+/* Passos do checkout */
 .etapa4-steps {
   display: flex;
   justify-content: center;
@@ -45,35 +36,26 @@
   margin: 25px 0 15px 0;
   gap: 50px;
 }
-
 .etapa4-step {
-  width: 45px;
-  height: 45px;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  color: #666;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 1.3rem;
-  background: #fff;
-  transition: all 0.3s ease;
+  width: 45px; height: 45px;
+  border: 2px solid #ccc; border-radius: 50%;
+  color: #666; display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 1.3rem; background: #fff;
+  transition: all 0.3s;
 }
-
 .etapa4-step.active {
-  background: #fff;
   color: #357a50;
   border-color: #357a50;
 }
 
+/* Linha divisória */
 .etapa4-divider {
   border-bottom: 2px solid #357a50;
-  margin: 0;
   width: 100%;
-  margin-bottom: 25px;
+  margin: 0 0 25px 0;
 }
 
+/* Título */
 .etapa4-title {
   color: #333;
   font-size: 1.6rem;
@@ -82,20 +64,19 @@
   text-align: left;
 }
 
+/* Card do produto */
 .etapa4-product-card {
   background: #fff;
   border-radius: 12px;
   margin: 0 20px 25px 20px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
 .etapa4-product-info {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-
 .etapa4-product-image {
   width: 80px;
   height: 80px;
@@ -103,18 +84,13 @@
   border-radius: 8px;
   background: #f0f0f0;
 }
-
-.etapa4-product-details {
-  flex: 1;
-}
-
+.etapa4-product-details { flex: 1; }
 .etapa4-product-name {
   color: #333;
   font-size: 1.2rem;
   font-weight: 600;
   margin: 0 0 5px 0;
 }
-
 .etapa4-product-price {
   color: #357a50;
   font-size: 1.1rem;
@@ -122,11 +98,11 @@
   margin: 0;
 }
 
+/* Resumo expansível */
 .etapa4-summary {
   margin: 0 20px;
   padding-bottom: 120px;
 }
-
 .etapa4-summary-item {
   background: #f5f5f5;
   border-radius: 8px 8px 0 0;
@@ -136,29 +112,21 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
-
-/* Aba expandida fica verde */
 .etapa4-summary-item.expanded {
   background: #357a50;
   color: #fff;
 }
-
 .etapa4-summary-item:hover:not(.expanded) {
   background: #e8e8e8;
 }
-
 .etapa4-summary-label {
   color: #666;
   font-size: 1rem;
   font-weight: 500;
 }
-
-.etapa4-summary-item.expanded .etapa4-summary-label {
-  color: #fff;
-}
-
+.etapa4-summary-item.expanded .etapa4-summary-label { color: #fff; }
 .etapa4-summary-value {
   display: flex;
   align-items: center;
@@ -167,64 +135,47 @@
   font-size: 1rem;
   font-weight: 500;
 }
-
-.etapa4-summary-item.expanded .etapa4-summary-value {
-  color: #fff;
-}
-
+.etapa4-summary-item.expanded .etapa4-summary-value { color: #fff; }
 .etapa4-summary-arrow {
   color: #999;
   font-size: 1.2rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
+.etapa4-summary-item.expanded .etapa4-summary-arrow { color: #fff; }
 
-.etapa4-summary-item.expanded .etapa4-summary-arrow {
-  color: #fff;
-}
-
+/* Detalhes expansíveis */
 .etapa4-details {
   background: #f9f9f9;
   border-radius: 0 0 8px 8px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.3s;
   margin-bottom: 12px;
 }
-
-.etapa4-details.expanded {
-  max-height: 200px;
-}
-
+.etapa4-details.expanded { max-height: 200px; }
 .etapa4-details-content {
   padding: 15px 20px;
   border-top: 1px solid #e0e0e0;
 }
-
 .etapa4-details-content p {
   margin: 5px 0;
   color: #666;
   font-size: 0.9rem;
   line-height: 1.4;
 }
+.etapa4-details-content strong { color: #333; }
 
-.etapa4-details-content strong {
-  color: #333;
-}
-
+/* Footer fixo com total e botão */
 .etapa4-footer-bar {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0px;
+  left: 0; right: 0; bottom: 0;
   background: #fff;
   border-top: 2px solid #357a50;
   display: flex;
-  align-items: stretch;
   z-index: 100;
   box-shadow: 0 -2px 8px #357a5011;
   height: 64px;
 }
-
 .etapa4-footer-total {
   flex: 1;
   display: flex;
@@ -235,7 +186,6 @@
   font-size: 1.4rem;
   background: #f8f8f8;
 }
-
 .etapa4-footer-btn {
   --background: #357a50;
   --color: #fff;

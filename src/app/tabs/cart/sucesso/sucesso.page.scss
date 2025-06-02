@@ -2,6 +2,7 @@
   --ion-background-color: #fff;
 }
 
+/* Container centralizado */
 .sucesso-container {
   display: flex;
   flex-direction: column;
@@ -11,10 +12,10 @@
   min-height: 100vh;
 }
 
+/* Logo circular */
 .sucesso-logo-container {
   margin-bottom: 60px;
 }
-
 .sucesso-logo-circle {
   width: 120px;
   height: 120px;
@@ -29,11 +30,11 @@
   box-shadow: 0 4px 16px rgba(53, 122, 80, 0.3);
 }
 
+/* Mensagem de sucesso */
 .sucesso-message {
   text-align: center;
   margin-bottom: 80px;
 }
-
 .sucesso-title {
   color: #333;
   font-size: 1.8rem;
@@ -43,11 +44,11 @@
   max-width: 300px;
 }
 
+/* Botão */
 .sucesso-button-container {
   width: 100%;
   max-width: 300px;
 }
-
 .sucesso-button {
   --background: #357a50;
   --color: #fff;

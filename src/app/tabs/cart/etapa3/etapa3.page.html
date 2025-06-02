@@ -12,45 +12,38 @@
 </ion-header>
 
 <ion-content class="etapa3-content">
-  <!-- 4 Passos com o 3 ativo -->
+  <!-- Passos do checkout -->
   <div class="etapa3-steps">
     <div class="etapa3-step">1</div>
     <div class="etapa3-step">2</div>
     <div class="etapa3-step active">3</div>
     <div class="etapa3-step">4</div>
   </div>
-
-  <!-- Linha verde de borda a borda -->
   <div class="etapa3-divider"></div>
 
-  <!-- Se não está no formulário do cartão, mostra opções de pagamento -->
+  <!-- Opções de pagamento -->
   <div *ngIf="!showCardForm">
     <h2 class="etapa3-title">Método de Pagamento</h2>
-
     <div class="etapa3-payment-options">
       <div class="etapa3-payment-option" [class.selected]="selectedPayment === 'cartao'" (click)="selectPayment('cartao')">
         <span class="etapa3-payment-text">Cartão de Crédito</span>
         <ion-icon name="card-outline" class="etapa3-payment-icon"></ion-icon>
       </div>
-
       <div class="etapa3-payment-option" [class.selected]="selectedPayment === 'universo'" (click)="selectPayment('universo')">
         <span class="etapa3-payment-text">Cartão Universo</span>
       </div>
-
       <div class="etapa3-payment-option" [class.selected]="selectedPayment === 'referencia'" (click)="selectPayment('referencia')">
         <span class="etapa3-payment-text">Referência Multibanco</span>
       </div>
-
       <div class="etapa3-payment-option" [class.selected]="selectedPayment === 'mbway'" (click)="selectPayment('mbway')">
         <span class="etapa3-payment-text">MB Way</span>
       </div>
     </div>
   </div>
 
-  <!-- Se está no formulário do cartão, mostra formulário igual à imagem -->
+  <!-- Formulário do cartão de crédito -->
   <div *ngIf="showCardForm">
     <h2 class="etapa3-title">Cartão de Crédito</h2>
-
     <div class="etapa3-card-form">
       <div class="etapa3-input-group">
         <ion-input 
@@ -65,7 +58,6 @@
         </ion-input>
         <ion-icon name="person-outline" class="etapa3-input-icon"></ion-icon>
       </div>
-
       <div class="etapa3-input-group">
         <ion-input 
           label="Número do Cartão"
@@ -82,7 +74,6 @@
         </ion-input>
         <ion-icon name="card-outline" class="etapa3-input-icon"></ion-icon>
       </div>
-
       <div class="etapa3-input-row">
         <div class="etapa3-input-group etapa3-input-half">
           <ion-input 
@@ -97,12 +88,11 @@
             required>
           </ion-input>
         </div>
-
         <div class="etapa3-input-group etapa3-input-half">
           <ion-input 
             label="CVV"
             labelPlacement="floating"
-            type="tel"
+            type="password"
             inputmode="numeric"
             placeholder="000" 
             [(ngModel)]="cartao.cvv"
@@ -110,7 +100,6 @@
             class="etapa3-input"
             fill="outline"
             maxlength="3"
-            type="password"
             required>
           </ion-input>
         </div>
@@ -119,7 +108,7 @@
   </div>
 </ion-content>
 
-<!-- Barra fixa no fundo com preço real do telemóvel -->
+<!-- Footer fixo com total e botão -->
 <div class="etapa3-footer-bar">
   <div class="etapa3-footer-total">
     €{{ total | number:'1.2-2' }}
@@ -128,7 +117,7 @@
     expand="block" 
     class="etapa3-footer-btn" 
     (click)="continuar()"
-    [disabled]="!isStepValid"> <!-- Botão desabilitado se etapa inválida -->
+    [disabled]="!isStepValid">
     Continuar
   </ion-button>
 </div>

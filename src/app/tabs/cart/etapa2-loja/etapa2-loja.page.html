@@ -12,6 +12,7 @@
 </ion-header>
 
 <ion-content class="etapa2-loja-content">
+  <!-- Passos do checkout -->
   <div class="etapa2-loja-steps">
     <div class="etapa2-loja-step">1</div>
     <div class="etapa2-loja-step active">2</div>
@@ -23,6 +24,7 @@
 
   <h2 class="etapa2-loja-title">Loja NewTechXXI</h2>
 
+  <!-- Pesquisa de cidades -->
   <div class="etapa2-loja-search">
     <ion-input 
       placeholder="Localização" 
@@ -33,6 +35,7 @@
     <ion-icon name="search-outline" class="etapa2-loja-search-icon"></ion-icon>
   </div>
 
+  <!-- Lista de cidades -->
   <div class="etapa2-loja-cities">
     <div 
       *ngFor="let city of filteredCities" 
@@ -48,6 +51,7 @@
   </div>
 </ion-content>
 
+<!-- Footer fixo com total e botão -->
 <div class="etapa2-loja-footer-bar">
   <div class="etapa2-loja-footer-total">
     €{{ total | number:'1.2-2' }}

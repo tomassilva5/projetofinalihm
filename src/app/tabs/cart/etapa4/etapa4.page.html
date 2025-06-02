@@ -12,21 +12,19 @@
 </ion-header>
 
 <ion-content class="etapa4-content">
-  <!-- 4 Passos com o 4 ativo -->
+  <!-- Passos do checkout -->
   <div class="etapa4-steps">
     <div class="etapa4-step">1</div>
     <div class="etapa4-step">2</div>
     <div class="etapa4-step">3</div>
     <div class="etapa4-step active">4</div>
   </div>
-
-  <!-- Linha verde de borda a borda -->
   <div class="etapa4-divider"></div>
 
   <!-- Título -->
   <h2 class="etapa4-title">Confirmação</h2>
 
-  <!-- Card do produto com imagem -->
+  <!-- Card do produto -->
   <div class="etapa4-product-card">
     <div class="etapa4-product-info">
       <img 
@@ -54,8 +52,6 @@
         </ion-icon>
       </div>
     </div>
-    
-    <!-- Detalhes do Local da Entrega -->
     <div class="etapa4-details" [class.expanded]="showDeliveryDetails">
       <div class="etapa4-details-content">
         <p><strong>Morada:</strong></p>
@@ -74,20 +70,20 @@
         </ion-icon>
       </div>
     </div>
-
-    <!-- Detalhes do Método de Pagamento -->
     <div class="etapa4-details" [class.expanded]="showPaymentDetails">
       <div class="etapa4-details-content">
         <p><strong>Dados do Cartão:</strong></p>
-        <p>Titular: {{ cartao.nomeTitular }}<br>
-        Cartão: **** **** **** {{ cartao.numeroCartao?.slice(-4) }}<br>
-        Validade: {{ cartao.validade }}</p>
+        <p>
+          Titular: {{ cartao.nomeTitular }}<br>
+          Cartão: **** **** **** {{ cartao.numeroCartao?.slice(-4) }}<br>
+          Validade: {{ cartao.validade }}
+        </p>
       </div>
     </div>
   </div>
 </ion-content>
 
-<!-- Barra fixa com preço correto -->
+<!-- Footer fixo com total e botão -->
 <div class="etapa4-footer-bar">
   <div class="etapa4-footer-total">
     €{{ total | number:'1.2-2' }}

@@ -10,7 +10,7 @@ import {
   IonButtons, 
   IonButton, 
   IonIcon,
-  IonInput // Certifica-te que IonInput está nos imports do componente
+  IonInput 
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -25,7 +25,7 @@ import {
     IonButtons, 
     IonButton, 
     IonIcon,
-    IonInput, // Adicionado aqui
+    IonInput,
     CommonModule, 
     FormsModule
   ]
@@ -37,7 +37,7 @@ export class Etapa2Page implements OnInit {
     pais: ''
   };
   total: number = 0;
-  isFormValid: boolean = false; // Controla o estado do botão
+  isFormValid: boolean = false; 
 
   constructor(
     private router: Router,
@@ -48,7 +48,6 @@ export class Etapa2Page implements OnInit {
     this.cartService.cart$.subscribe(cart => {
       this.total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
     });
-    // Verifica validade inicial (caso dados venham preenchidos)
     this.checkFormValidity();
   }
 
@@ -56,7 +55,6 @@ export class Etapa2Page implements OnInit {
     this.router.navigate(['/tabs/cart/etapa1']);
   }
 
-  // Baseado no resultado [2] - validação em tempo real
   checkFormValidity() {
     // Verifica se todos os campos da morada estão preenchidos
     this.isFormValid = 
